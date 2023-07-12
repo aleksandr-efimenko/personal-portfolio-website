@@ -16,18 +16,35 @@ const navItems = [
   },
 ];
 
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: siteConfig.links.github,
+    icon: <Icons.gitHub className="h-6 w-6" />,
+  },
+  {
+    name: "LinkedIn",
+    href: siteConfig.links.linkedin,
+    icon: <Icons.linkedIn className="h-6 w-6" />,
+  },
+];
+
 export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <div className="container relative flex w-full items-center justify-between">
-      <Link href="/" className=" flex items-center space-x-2">
-        <p className="whitespace-nowrap text-heading-m lowercase">
-          {siteConfig.logo}
-          <span className="text-light-green">.com</span>
-        </p>
-      </Link>
-      <nav className="absolute inset-0 mx-auto flex w-fit items-center justify-center text-sm font-medium">
+    <div className="container relative flex w-full items-center justify-between py-10">
+      <div className="flex-1">
+        <Link href="/" className="w-fit ">
+          <p className="group w-fit whitespace-nowrap text-heading-m lowercase transition-colors hover:text-light-green">
+            {siteConfig.logo}
+            <span className="text-light-green transition-colors group-hover:text-foreground">
+              .com
+            </span>
+          </p>
+        </Link>
+      </div>
+      <nav className=" flex flex-1 items-center justify-center text-base font-medium">
         <div className="flex space-x-6">
           {navItems.map((item) => (
             <Link
@@ -45,13 +62,16 @@ export function MainNav() {
           ))}
         </div>
       </nav>
-      <div className="flex space-x-6">
-        <Link href={siteConfig.links.github}>
-          <Icons.gitHub className="h-6 w-6" />
-        </Link>
-        <Link href={siteConfig.links.linkedin}>
-          <Icons.linkedIn className="h-6 w-6" />
-        </Link>
+      <div className="flex flex-1 justify-end gap-10">
+        {socialLinks.map((item) => (
+          <Link
+            href={item.href}
+            key={item.name}
+            className="transition-colors hover:text-light-green"
+          >
+            {item.icon}
+          </Link>
+        ))}
       </div>
     </div>
   );
