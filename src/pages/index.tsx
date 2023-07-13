@@ -10,9 +10,57 @@ export default function Home() {
       <Head>
         <title>{siteConfig.title}</title>
       </Head>
-      <div className="flex min-h-screen flex-col items-center justify-center">
+      <div className="flex  flex-col items-center justify-center">
         <HeroBlock />
       </div>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
+        molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem
+        incidunt facere dolores sint, amet sunt modi alias odio reprehenderit,
+        molestias provident?
+      </p>
     </>
   );
 }
