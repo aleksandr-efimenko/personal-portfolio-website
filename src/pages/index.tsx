@@ -3,6 +3,7 @@ import Link from "next/link";
 import { api } from "@/utils/api";
 import { siteConfig } from "@/config/site";
 import { HeroBlock } from "@/components/main-page-blocks/hero-block";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -10,9 +11,9 @@ export default function Home() {
       <Head>
         <title>{siteConfig.title}</title>
       </Head>
-      <div className="flex  flex-col items-center justify-center">
+      <motion.main layoutScroll className="flex  w-full flex-col">
         <HeroBlock />
-      </div>
+      </motion.main>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
         molestiae? Saepe fugit accusantium atque doloremque asperiores. Quidem

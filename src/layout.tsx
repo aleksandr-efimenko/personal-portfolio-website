@@ -15,13 +15,13 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
       </Head>
       <main
         className={cn(
-          "flex min-h-screen flex-col items-center justify-center bg-background",
+          " flex min-h-screen flex-col items-center justify-center bg-background",
           // fontGrotesk.variable
           fontGrotesk.className
         )}
       >
         <MainNav />
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+        <div className="container flex flex-col items-center justify-center gap-12 px-4 pb-16 ">
           {children}
         </div>
       </main>

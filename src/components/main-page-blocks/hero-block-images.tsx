@@ -6,4 +6,4 @@ import Img5 from "~/main-block-images/5.png";
 import Img6 from "~/main-block-images/6.png";
 import Img7 from "~/main-block-images/7.png";
 
-export const heroBlockImages = [Img1, Img2, Img3, Img4, Img5, Img6, Img7];
+export const heroBlockImages = [Img1, Img2];
