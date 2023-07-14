@@ -37,7 +37,7 @@ export function ImageSequenceAnimation({
 
   return (
     <div
-      className="flex h-[45rem] w-[27rem]
+      className="-z-10 flex h-[45rem] w-[27rem]
     flex-col justify-end overflow-hidden bg-dark-gray grayscale"
     >
       {imagesArray.map((item, i) => (
