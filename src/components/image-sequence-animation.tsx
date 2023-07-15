@@ -37,8 +37,10 @@ export function ImageSequenceAnimation({
 
   return (
     <div
-      className="-z-10 flex h-[45rem] w-[27rem]
-    flex-col justify-end overflow-hidden bg-dark-gray grayscale"
+      className="dark:bg-background-dark -top- absolute -top-[7.25rem] right-10
+    -z-10 flex h-[45rem] w-[27rem] flex-col justify-end
+    overflow-hidden rounded-3xl bg-light-green
+    "
     >
       {imagesArray.map((item, i) => (
         <Image
@@ -47,7 +49,7 @@ export function ImageSequenceAnimation({
           src={item.src}
           key={i}
           alt="my photo"
-          className=" scale-150"
+          className=" scale-150 "
           style={{
             display: i !== currentImageIndex ? "none" : "block",
           }}

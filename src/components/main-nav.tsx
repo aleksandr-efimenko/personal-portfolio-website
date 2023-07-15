@@ -46,7 +46,7 @@ export function MainNav() {
         </Link>
       </div>
       <nav
-        className=" flex flex-1 items-center justify-center  gap-6
+        className=" flex flex-1 items-center justify-center gap-6
       text-base font-medium"
       >
         {navItems.map((item) => (

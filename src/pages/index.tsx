@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { HeroBlock } from "@/components/main-page-blocks/hero-block";
+import { ProjectsBlock } from "@/components/main-page-blocks/projects-block";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
       <section className="flex w-full flex-col">
         <HeroBlock />
+        <ProjectsBlock />
       </section>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, culpa
