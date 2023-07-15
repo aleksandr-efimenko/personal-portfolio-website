@@ -1,37 +1,75 @@
 import { ImageSequenceAnimation } from "../image-sequence-animation";
-import { Button } from "../ui/button";
 import { heroBlockImages } from "./hero-block-images";
+import patternCircle from "~/pattern-circle.svg";
+import patternRings from "~/pattern-rings.svg";
+import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
+
+const pageData = {
+  title: "Nice to meet you!",
+  subtitle: "I'm ",
+  subtitleHighlight: "Alex Efimenko",
+  subtitleEnd: ".",
+  description:
+    "I'm a front-end developer passionate about building accessible web apps that users love.",
+  links: [
+    {
+      label: "Contact me",
+      href: "#contact",
+    },
+    {
+      label: "Download CV.pdf",
+      href: "/",
+    },
+  ],
+};
 
 export function HeroBlock() {
   return (
     <div className="flex h-[45rem] w-full items-center justify-between">
-      <div className="flex w-full flex-col gap-16">
-        <div className="flex flex-col gap-10">
+      <Image
+        src={patternRings as StaticImageData}
+        alt="pattern circle"
+        className=" absolute -left-32 top-28 z-10"
+      />
+      <div className="flex w-full flex-col justify-center gap-10">
+        <div className="flex h-full flex-col gap-10">
           <div>
-            <h1 className="text-heading-xl">Nice to meet you!</h1>
+            <h1 className="text-heading-xl">{pageData.title}</h1>
             <h2 className="text-heading-xl">
-              I&apos;m{" "}
-              <span className="border-b-[6px] border-light-green">
-                Alex Efimenko
+              {pageData.subtitle}
+              <span
+                className="border-b-[0.375rem] border-light-green transition-all
+          duration-200 hover:border-b-[0.75rem]"
+              >
+                {pageData.subtitleHighlight}
               </span>
-              .
+              {pageData.subtitleEnd}
             </h2>
           </div>
-          <p className="w-2/3 text-body">
-            I&rsquo;m a front-end developer passionate about building accessible
-            web apps that users love.
-          </p>
+          <p className="max-w-md text-body">{pageData.description}</p>
         </div>
-        <Button
-          variant={"link"}
-          className="w-fit rounded-none border-b-2 
-          border-light-green px-0 text-base uppercase hover:no-underline"
-        >
-          Contact me
-        </Button>
+        <div className="flex flex-col gap-3">
+          {pageData.links.map((link) => (
+            <Link href={link.href} className="w-fit text-xl" key={link.label}>
+              <span
+                className="border-b-2 border-light-green uppercase transition-all 
+              duration-200 hover:border-b-4"
+              >
+                {link.label}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
-
-      <ImageSequenceAnimation imagesArray={heroBlockImages} />
+      <Image
+        src={patternCircle as StaticImageData}
+        alt="pattern circle"
+        className=" absolute right-[25rem] z-10"
+      />
+      <div className="absolute -top-[7.25rem] right-10 -z-10">
+        <ImageSequenceAnimation imagesArray={heroBlockImages} />
+      </div>
     </div>
   );
 }
