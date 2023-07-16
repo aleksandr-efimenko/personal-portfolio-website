@@ -1,46 +1,18 @@
+import { type StaticImageData } from "next/image";
 import { StyledLink } from "../ui/styled-link";
+import { ProjectCard } from "../project-card";
+import { projectsData } from "@/data/projects";
 
-const projectsData = [
-  {
-    title: "Kanban Desk",
-    tags: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "MongoDB",
-      "Prisma",
-    ],
-    href: "https://kanban-desk.alexefimenko.com/.vercel.app/",
-    projectPage: "/projects/kanban-board",
-    link: "https://kanban-board.alexefimenko.com/",
-    github: "https://github.com/aleksandr-efimenko/kanban-task-management",
-    image: "/images/kanban-board.png",
-  },
-  {
-    title: "Portfolio",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-    href: "https://alexefimenko.com/",
-    projectPage: "/projects/portfolio",
-    link: "https://alexefimenko.com/",
-    github: "",
-    image: "/images/portfolio.png",
-  },
-  {
-    title: "Weather App",
-    tags: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "OpenWeatherMap API",
-    ],
-    href: "https://weather-app.alexefimenko.com/",
-    projectPage: "/projects/weather-app",
-    link: "https://weather-app.alexefimenko.com/",
-    github: "",
-  },
-];
+export type ProjectData = {
+  title: string;
+  tags: string[];
+  links: {
+    projectInfo: string;
+    livePreview: string;
+    github: string;
+  };
+  image: StaticImageData;
+};
 
 export function ProjectsBlock() {
   return (
@@ -49,7 +21,11 @@ export function ProjectsBlock() {
         <h2 className="text-heading-l">Projects</h2>
         <StyledLink href={"/"}>Contact me</StyledLink>
       </div>
-      <div className="grid-cols-2"></div>
+      <div className="mt-20 grid w-full grid-cols-2 gap-6 gap-y-16">
+        {projectsData.map((projectData) => (
+          <ProjectCard key={projectData.title} {...projectData} />
+        ))}
+      </div>
     </div>
   );
 }
