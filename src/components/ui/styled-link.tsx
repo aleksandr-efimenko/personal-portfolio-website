@@ -14,7 +14,11 @@ export function StyledLink({
   ...props
 }: StyledLinkProps) {
   return (
-    <Link href={href} className="w-fit text-xl" {...props}>
+    <Link
+      href={href}
+      className="w-fit text-base  md:text-body lg:text-xl"
+      {...props}
+    >
       <span
         className={cn(
           className,

@@ -21,7 +21,10 @@ export function ProjectsBlock() {
         <h2 className="text-heading-l">Projects</h2>
         <StyledLink href={"/"}>Contact me</StyledLink>
       </div>
-      <div className="mt-20 grid w-full auto-cols-fr grid-cols-2 gap-6 gap-y-16">
+      <div
+        className="mt-20 grid w-full auto-cols-fr grid-cols-1 gap-6 gap-y-16
+       md:grid-cols-2 lg:grid-cols-3"
+      >
         {projectsData.map((projectData) => (
           <ProjectCard key={projectData.title} {...projectData} />
         ))}

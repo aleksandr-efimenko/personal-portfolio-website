@@ -2,6 +2,7 @@ import Head from "next/head";
 import { cn } from "./utils/utils";
 import { fontGrotesk } from "./styles/fonts";
 import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -22,6 +23,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
       >
         <Header />
         <div className="container relative z-0">{children}</div>
+        <Footer />
       </main>
     </>
   );
