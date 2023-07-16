@@ -16,7 +16,7 @@ export const projectsData: ProjectData[] = [
       "Prisma",
     ],
     links: {
-      projectInfo: "/projects/kanban-desk",
+      projectInfo: "/kanban-desk",
       livePreview: "https://kanban-desk.alexefimenko.com/",
       github: "https://github.com/aleksandr-efimenko/kanban-task-management/",
     },
@@ -26,7 +26,7 @@ export const projectsData: ProjectData[] = [
     title: "Space tourism",
     tags: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
     links: {
-      projectInfo: "/projects/space-tourism",
+      projectInfo: "/space-tourism",
       livePreview: "https://space-tourism.alexefimenko.com/",
       github:
         "https://github.com/aleksandr-efimenko/space-tourism-website-frontendmentor",
@@ -43,7 +43,7 @@ export const projectsData: ProjectData[] = [
       "OpenWeatherMap API",
     ],
     links: {
-      projectInfo: "/projects/password-generator",
+      projectInfo: "/password-generator",
       livePreview: "https://password-generator.alexefimenko.com/",
       github:
         "https://github.com/aleksandr-efimenko/password-generator-frontendmentor",

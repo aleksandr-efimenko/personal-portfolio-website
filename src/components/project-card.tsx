@@ -7,7 +7,7 @@ export function ProjectCard(props: ProjectData) {
   const { title, tags, links, image } = props;
 
   return (
-    <div className="min-h-[25rem]">
+    <div className="min-h-[24rem]">
       <div className="group relative h-full w-full transition-all duration-200">
         <Image
           src={image}
@@ -24,7 +24,9 @@ export function ProjectCard(props: ProjectData) {
           className="absolute inset-0 hidden w-full flex-col 
       items-center justify-center gap-6 bg-black opacity-75  group-hover:flex"
         >
-          <StyledLink href={links.projectInfo}>Project page</StyledLink>
+          <StyledLink href={`/projects${links.projectInfo}`}>
+            Project page
+          </StyledLink>
           <StyledLink href={links.livePreview}>Live preview</StyledLink>
           <StyledLink href={links.github}>Source code</StyledLink>
         </div>

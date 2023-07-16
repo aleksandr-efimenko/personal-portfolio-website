@@ -1,7 +1,7 @@
-import { MainNav } from "@/components/main-nav";
 import Head from "next/head";
 import { cn } from "./utils/utils";
 import { fontGrotesk } from "./styles/fonts";
+import { Header } from "./components/header";
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,7 +20,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
           fontGrotesk.className
         )}
       >
-        <MainNav />
+        <Header />
         <div className="container relative z-0">{children}</div>
       </main>
     </>
