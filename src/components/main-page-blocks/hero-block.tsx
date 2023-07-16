@@ -3,7 +3,7 @@ import { heroBlockImages } from "./hero-block-images";
 import patternCircle from "~/pattern-circle.svg";
 import patternRings from "~/pattern-rings.svg";
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
+import { StyledLink } from "../ui/styled-link";
 
 const pageData = {
   title: "Nice to meet you!",
@@ -51,14 +51,9 @@ export function HeroBlock() {
         </div>
         <div className="flex flex-col gap-3">
           {pageData.links.map((link) => (
-            <Link href={link.href} className="w-fit text-xl" key={link.label}>
-              <span
-                className="border-b-2 border-light-green uppercase transition-all 
-              duration-200 hover:border-b-4"
-              >
-                {link.label}
-              </span>
-            </Link>
+            <StyledLink href={link.href} key={link.href}>
+              {link.label}
+            </StyledLink>
           ))}
         </div>
       </div>

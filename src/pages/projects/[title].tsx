@@ -1,3 +1,6 @@
-export default function Page({ params }: { params: { slug: string } }) {
-  return <h1>My Page</h1>;
+import { useRouter } from "next/router";
+
+export default function Page() {
+  const router = useRouter();
+  return <h1>{router.query.title}</h1>;
 }
