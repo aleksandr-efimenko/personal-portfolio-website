@@ -37,8 +37,7 @@ export function ImageSequenceAnimation({
 
   return (
     <div
-      className="dark:bg-background-dark -top- absolute -top-[7.25rem] right-10
-    -z-10 flex h-[45rem] w-[27rem] flex-col justify-end
+      className="dark:bg-background-dark flex h-[45rem] w-[27rem] flex-col justify-end
     overflow-hidden rounded-3xl bg-light-green
     "
     >
