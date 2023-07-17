@@ -22,7 +22,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
         )}
       >
         <Header />
-        <div className="container relative z-0">{children}</div>
+        <div className="relative z-0">{children}</div>
         <Footer />
       </main>
     </>

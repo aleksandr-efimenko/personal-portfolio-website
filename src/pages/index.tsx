@@ -14,7 +14,9 @@ export default function Home() {
       <section className="flex w-full flex-col">
         <HeroBlock />
         <ProjectsBlock />
-        <ContactBlock />
+        <div className="w-full bg-light-gray py-20 dark:bg-dark-gray">
+          <ContactBlock />
+        </div>
       </section>
     </>
   );

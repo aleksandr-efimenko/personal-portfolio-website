@@ -16,7 +16,7 @@ export type ProjectData = {
 
 export function ProjectsBlock() {
   return (
-    <div>
+    <div className="container">
       <div className="flex w-full items-center justify-between">
         <h2 className="text-heading-l">Projects</h2>
         <StyledLink href={"/"}>Contact me</StyledLink>
