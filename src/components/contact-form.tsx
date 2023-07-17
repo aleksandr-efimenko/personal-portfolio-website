@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -39,41 +38,49 @@ export function ContactForm() {
       message: "",
     },
   });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  type ProfileFormValues = z.infer<typeof formSchema>;
+  function onSubmit(data: ProfileFormValues) {
+    console.log(data);
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={void form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem className="group relative z-0 mb-6 w-full">
-              <FormLabel
-                htmlFor="name-input"
-                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm uppercase text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
-              >
-                name
-              </FormLabel>
               <FormControl>
                 <Input
-                  id="name-input"
+                  id="name"
                   placeholder=" "
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
+                  className="peer appearance-none border-0 border-b-2
+                   border-gray-600 bg-transparent text-gray-900
+                    focus:border-light-green focus:outline-none focus:ring-0
+                     dark:border-white dark:text-white dark:focus:border-light-green"
                   {...field}
                 />
               </FormControl>
+              <FormLabel
+                htmlFor="name"
+                className="absolute top-3 -z-10 origin-[0]
+                 -translate-y-6 scale-75 transform text-sm uppercase
+                  text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 
+                  peer-placeholder-shown:scale-100 peer-focus:left-0 
+                  peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:font-medium
+                   peer-focus:text-light-green dark:text-gray-400
+                    peer-focus:dark:text-light-green"
+              >
+                name
+              </FormLabel>
 
-              <FormMessage />
+              <FormMessage className="text-red-400" />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+
+        <Button type="submit">Send message</Button>
       </form>
     </Form>
   );
