@@ -14,7 +14,7 @@ export default function Home() {
       <section className="flex w-full flex-col">
         <HeroBlock />
         <ProjectsBlock />
-        <div className="w-full bg-light-gray py-20 dark:bg-dark-gray">
+        <div className="w-full bg-zinc-400 py-20 dark:bg-dark-gray">
           <ContactBlock />
         </div>
       </section>

@@ -1,32 +1,28 @@
-import Link from "next/link";
 import { cn } from "@/utils/utils";
 
-export type StyledLinkProps = {
-  href: string;
+export type StyledButtonProps = {
   children: React.ReactNode;
   className?: string;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export function StyledLink({
-  href,
+export function StyledButton({
   children,
   className,
   ...props
-}: StyledLinkProps) {
+}: StyledButtonProps) {
   return (
-    <Link
-      href={href}
+    <button
       className="w-fit text-base tracking-widest text-foreground md:text-body lg:text-xl"
       {...props}
     >
       <span
         className={cn(
           className,
-          "border-b-2 border-light-green uppercase transition-all duration-200 hover:border-b-4 hover:text-light-green"
+          "border-b-2 border-light-green uppercase transition-all duration-200 hover:border-b-4 hover:text-light-green          "
         )}
       >
         {children}
       </span>
-    </Link>
+    </button>
   );
 }
