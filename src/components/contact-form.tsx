@@ -13,6 +13,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { StyledButton } from "./ui/styled-button";
+import { api } from "@/utils/api";
+import { AnimatedSpinner } from "./animated-spinner";
 
 const formSchema = z.object({
   name: z
@@ -42,11 +44,22 @@ export function ContactForm() {
       message: "",
     },
   });
+  const formSubmitMutation = api.email.sendEmail.useMutation();
   type ProfileFormValues = z.infer<typeof formSchema>;
 
   function onSubmit(data: ProfileFormValues) {
+    formSubmitMutation.mutate({
+      senderName: data.name,
+      senderEmail: data.email,
+      message: data.message,
+    });
     console.log(data);
   }
+
+  if (formSubmitMutation.isLoading) {
+    return <AnimatedSpinner />;
+  }
+
   if (form.formState.isSubmitSuccessful) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4">

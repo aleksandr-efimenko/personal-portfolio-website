@@ -18,7 +18,7 @@ module.exports = {
     extend: {
       fontSize: {
         "heading-xl": [
-          "5rem",
+          "4rem",
           {
             lineHeight: "5.5rem",
             fontWeight: "700",
