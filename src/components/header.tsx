@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
 import { MainNav } from "./main-nav";
 
-const socialLinks = [
+export const socialLinks = [
   {
     name: "GitHub",
     href: siteConfig.links.github,
