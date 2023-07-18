@@ -9,8 +9,8 @@ export function ContactBlock() {
     <div className="container relative flex flex-col justify-between gap-16 md:flex-row md:gap-24 lg:gap-48">
       <Image
         src={patternDots as StaticImageData}
-        alt="pattern circle"
-        className="absolute -left-32 z-10 opacity-20 invert "
+        alt="abstract pattern dots"
+        className="absolute -left-16 z-10 opacity-20 invert "
         height={300}
       />
 
@@ -18,7 +18,7 @@ export function ContactBlock() {
         <h3 className="text-heading-xl">Contact</h3>
         <p className="text-body">{blockDescription}</p>
       </div>
-      <div className=" flex-1">
+      <div className="flex-1">
         <ContactForm />
       </div>
     </div>

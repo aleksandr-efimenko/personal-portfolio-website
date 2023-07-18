@@ -36,13 +36,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Password generator",
-    tags: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "OpenWeatherMap API",
-    ],
+    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
     links: {
       projectInfo: "/password-generator",
       livePreview: "https://password-generator.alexefimenko.com/",
@@ -53,7 +47,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Inspirational page",
-    tags: ["React", "TypeScript", "Firebase"],
+    tags: ["React", "TypeScript", "Firebase", "OpenWeatherMap API"],
     links: {
       projectInfo: "/inspirational-page",
       livePreview: "https://inspirational-page.alexefimenko.com/",
@@ -63,7 +57,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Dropdomains",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Firebase"],
+    tags: ["MVC", "Razor pages", "RabbitMQ", "MS SQL Server"],
     links: {
       projectInfo: "/dropdomains",
       livePreview: "https://dropdomains.alexefimenko.com/",

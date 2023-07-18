@@ -26,7 +26,7 @@ const pageData = {
 
 export function HeroBlock() {
   return (
-    <div className="container relative flex h-[45rem] w-full items-center justify-between">
+    <div className=" container relative flex h-[45rem] w-full items-center justify-between ">
       <Image
         src={patternRings as StaticImageData}
         alt="pattern circle"

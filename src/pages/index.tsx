@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { HeroBlock } from "@/components/main-page-blocks/hero-block";
 import { ProjectsBlock } from "@/components/main-page-blocks/projects-block";
@@ -13,7 +12,9 @@ export default function Home() {
       </Head>
       <section className="flex w-full flex-col">
         <HeroBlock />
-        <ProjectsBlock />
+        <div className="container py-20">
+          <ProjectsBlock />
+        </div>
         <div className="w-full bg-zinc-400 py-20 dark:bg-dark-gray">
           <ContactBlock />
         </div>
