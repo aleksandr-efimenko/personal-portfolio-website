@@ -1,9 +1,14 @@
 import { type StaticImageData } from "next/image";
 import { ProjectCard } from "../project-card";
 import { projectsData } from "@/data/projects";
-import { useState } from "react";
+import { createContext, useReducer, useState } from "react";
 import { StyledButton } from "../ui/styled-button";
 import { TagCloud } from "../tag-cloud";
+import {
+  TagsReducerActionType,
+  tagsReducer,
+  tagsReducerInitialState,
+} from "@/reducers/tags-reducer";
 
 export type ProjectData = {
   title: string;
@@ -16,31 +21,47 @@ export type ProjectData = {
   image: StaticImageData;
 };
 
+export const TagsFilterContext = createContext({
+  tagsFilter: [] as string[],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  dispatch: (action: TagsReducerActionType) => {},
+});
+
 export function ProjectsBlock() {
-  const [tagsFilter, setTagsFilter] = useState<string[]>([]);
+  const [tags, dispatch] = useReducer(tagsReducer, tagsReducerInitialState);
+
   const projectsDataFiltered = projectsData.filter((projectData) => {
-    if (tagsFilter.length === 0) return true;
+    if (tags.tagsFilter.length === 0) return true;
     return projectData.tags.some((tag) =>
-      tagsFilter.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())
+      tags.tagsFilter
+        .map((tag) => tag.toLowerCase())
+        .includes(tag.toLowerCase())
     );
   });
-  console.log(tagsFilter);
+  const isFiltered = tags.tagsFilter.length > 0;
+  const resetTagsFilter = () => dispatch({ type: "RESET_TAGS", payload: "" });
   return (
-    <div className="flex flex-col gap-10">
-      <div className="flex w-full items-center justify-between">
-        <h2 className="text-heading-xl">Technologies</h2>
-        <StyledButton onClick={() => setTagsFilter([])}>Reset</StyledButton>
-      </div>
-      <TagCloud setTagsFilter={setTagsFilter} tagsFilter={tagsFilter} />
-      <h2 className="text-heading-xl">Projects</h2>
-      <div
-        className="grid w-full auto-cols-fr grid-cols-1 gap-6 gap-y-16
+    <TagsFilterContext.Provider
+      value={{ tagsFilter: tags.tagsFilter, dispatch }}
+    >
+      <div className="flex flex-col gap-10">
+        <div className="flex w-full items-center justify-between">
+          <h2 className="text-heading-xl">Technologies</h2>
+          {isFiltered && (
+            <StyledButton onClick={resetTagsFilter}>Reset</StyledButton>
+          )}
+        </div>
+        <TagCloud />
+        <h2 className="text-heading-xl">Projects</h2>
+        <div
+          className="grid w-full auto-cols-fr grid-cols-1 gap-6 gap-y-16
        md:grid-cols-2 lg:grid-cols-3"
-      >
-        {projectsDataFiltered.map((projectData) => (
-          <ProjectCard key={projectData.title} {...projectData} />
-        ))}
+        >
+          {projectsDataFiltered.map((projectData) => (
+            <ProjectCard key={projectData.title} {...projectData} />
+          ))}
+        </div>
       </div>
-    </div>
+    </TagsFilterContext.Provider>
   );
 }

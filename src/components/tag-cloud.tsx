@@ -1,64 +1,45 @@
-import { projectsData } from "@/data/projects";
+import { tagsWithCount } from "@/data/projects";
 import { cn } from "@/utils/utils";
+import { useContext } from "react";
+import { TagsFilterContext } from "./main-page-blocks/projects-block";
 
-export function TagCloud({
-  tagsFilter,
-  setTagsFilter,
-}: {
-  tagsFilter: string[];
-  setTagsFilter: (tags: string[]) => void;
-}) {
-  const tagsWithCount = projectsData
-    .map((project) => project.tags)
-    .reduce((acc, tag) => {
-      tag.forEach((tag) => {
-        if (acc[tag]) {
-          acc[tag] += 1;
-        } else {
-          acc[tag] = 1;
-        }
-      });
-      return acc;
-    }, {} as Record<string, number>);
+// Defines the color of the tag based on whether it is selected or not
+export const tagColor = (tagsFilter: string[], tag: string) => {
+  if (tagsFilter.includes(tag)) {
+    return "border-light-green text-light-green text-light-green ";
+  } else {
+    return " text-foreground";
+  }
+};
 
+export function TagCloud() {
+  const { dispatch, tagsFilter } = useContext(TagsFilterContext);
   const handleTagFilter = (tag: string) => {
     if (tag) {
-      console.log(tag);
-      if (tagsFilter.includes(tag)) {
-        setTagsFilter((tagsFilter) =>
-          tagsFilter.filter((tagFilter) => tagFilter !== tag)
-        );
-      } else {
-        setTagsFilter((tagsFilter) => [...tagsFilter, tag]);
-      }
+      dispatch({ type: "ADD_OR_REMOVE_TAG", payload: tag });
     }
   };
-  const tagColor = (tag: string) => {
-    if (tagsFilter.includes(tag)) {
-      return "border-light-green text-light-green text-light-green";
-    } else {
-      return "bg-transparent text-foreground";
-    }
-  };
+
   return (
-    <div className="flex flex-wrap gap-2">
+    <ul className="flex flex-wrap gap-2">
       {tagsWithCount &&
         Object.entries(tagsWithCount).map(([tag, count]) => (
-          <>
+          <li key={tag}>
             <button
               onClick={() => handleTagFilter(tag)}
-              key={tag}
               className={cn(
                 `rounded-full border border-foreground px-3 
-            text-xl transition-all duration-200 
-            hover:border-light-green hover:text-light-green`,
-                tagColor(tag)
+            text-xl transition-all 
+            duration-200 hover:border-light-green
+            hover:bg-foreground/20 hover:text-light-green
+            `,
+                tagColor(tagsFilter, tag)
               )}
             >
               {tag} ({count}) {tagsFilter.includes(tag) ? "✓" : ""}
             </button>
-          </>
+          </li>
         ))}
-    </div>
+    </ul>
   );
 }

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { type ProjectData } from "./main-page-blocks/projects-block";
 import { StyledLink } from "./ui/styled-link";
 import Image from "next/image";
@@ -8,7 +7,7 @@ export function ProjectCard(props: ProjectData) {
   const { title, tags, links, image } = props;
 
   return (
-    <div>
+    <div key={title}>
       <div className="group relative w-full transition-all duration-200">
         <Image
           src={image}
@@ -22,18 +21,24 @@ export function ProjectCard(props: ProjectData) {
 
         <div className="absolute inset-0 hidden bg-black opacity-75  group-hover:flex"></div>
         <div className="absolute inset-0 hidden flex-col items-center justify-evenly py-4 group-hover:flex">
-          <StyledLink
-            className="text-white"
-            href={`/projects${links.projectInfo}`}
-          >
-            Description
-          </StyledLink>
-          <StyledLink className="text-white" href={links.livePreview}>
-            Visit site
-          </StyledLink>
-          <StyledLink className="text-white" href={links.github}>
-            Source code
-          </StyledLink>{" "}
+          {links.projectInfo && (
+            <StyledLink
+              className="text-white"
+              href={`/projects${links.projectInfo}`}
+            >
+              Description
+            </StyledLink>
+          )}
+          {links.livePreview && (
+            <StyledLink className="text-white" href={links.livePreview}>
+              Visit site
+            </StyledLink>
+          )}
+          {links.github && (
+            <StyledLink className="text-white" href={links.github}>
+              Source code
+            </StyledLink>
+          )}
         </div>
       </div>
       <ProjectCardDescription
