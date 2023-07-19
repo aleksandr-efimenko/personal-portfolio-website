@@ -1,5 +1,5 @@
-import { type ProjectData } from "./main-page-blocks/projects-block";
-import { StyledLink } from "./ui/styled-link";
+import { type ProjectData } from "./projects-block";
+import { StyledLink } from "../../ui/styled-link";
 import Image from "next/image";
 import { ProjectCardDescription } from "./project-card-description";
 

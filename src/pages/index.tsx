@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { siteConfig } from "@/config/site";
-import { HeroBlock } from "@/components/main-page-blocks/hero-block";
-import { ProjectsBlock } from "@/components/main-page-blocks/projects-block";
-import { ContactBlock } from "@/components/main-page-blocks/contact-block";
+import { HeroBlock } from "@/components/main-page-blocks/hero/hero-block";
+import { ProjectsBlock } from "@/components/main-page-blocks/projects/projects-block";
+import { ContactBlock } from "@/components/main-page-blocks/contact/contact-block";
 
 export default function Home() {
   return (

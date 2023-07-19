@@ -5,7 +5,7 @@ import inspirationalImg from "~/project-screenshots/inspirational-page.png";
 import dropdomainImg from "~/project-screenshots/dropdomains.png";
 import memoryGameImg from "~/project-screenshots/memory-game.png";
 import marathonPrpImg from "~/project-screenshots/marathon-preparation-plan-2.png";
-import { type ProjectData } from "@/components/main-page-blocks/projects-block";
+import { type ProjectData } from "@/components/main-page-blocks/projects/projects-block";
 
 export const projectsData: ProjectData[] = [
   {
@@ -16,7 +16,7 @@ export const projectsData: ProjectData[] = [
       "Next.js",
       "Tailwind CSS",
       "MongoDB",
-      "Prisma",
+      "Prisma ORM",
       "tRPC",
       "NextAuth.js",
     ],
@@ -29,7 +29,14 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Space tourism",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer motion"],
+    tags: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer motion",
+      "Playwright",
+    ],
     links: {
       projectInfo: "/space-tourism",
       livePreview: "https://space-tourism.alexefimenko.com/",
@@ -47,6 +54,12 @@ export const projectsData: ProjectData[] = [
       "Razor pages",
       "RabbitMQ",
       "MS SQL Server",
+      "Entity Framework ORM",
+      "Bootstrap",
+      "JavaScript",
+      "Chart.js",
+      "Docker",
+      "Selenium",
     ],
     links: {
       projectInfo: "/dropdomains",
@@ -68,7 +81,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Inspirational page",
-    tags: ["React", "Redux", "TypeScript", "Firebase", "OpenWeatherMap API"],
+    tags: ["React", "Redux", "TypeScript", "Firebase", "External API"],
     links: {
       projectInfo: "/inspirational-page",
       livePreview: "https://inspirational-page.alexefimenko.com/",
@@ -91,7 +104,7 @@ export const projectsData: ProjectData[] = [
     title: "ChatGPT Marathon preparation plan ",
     tags: [
       "OpenAI API",
-      "Typescript",
+      "TypeScript",
       "React",
       "Next.js",
       "Full calendar",

@@ -11,10 +11,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "./ui/textarea";
-import { StyledButton } from "./ui/styled-button";
+import { Textarea } from "../../ui/textarea";
+import { StyledButton } from "../../ui/styled-button";
 import { api } from "@/utils/api";
-import { AnimatedSpinner } from "./animated-spinner";
+import { AnimatedSpinner } from "../../animated-spinner";
 
 const formSchema = z.object({
   name: z

@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { cn } from "./utils/utils";
-import { fontGrotesk } from "./styles/fonts";
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
+import { cn } from "../../utils/utils";
+import { fontGrotesk } from "../../styles/fonts";
+import { Header } from "./header";
+import { Footer } from "./footer";
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   return (

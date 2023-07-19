@@ -1,7 +1,7 @@
 import { tagsWithCount } from "@/data/projects";
 import { cn } from "@/utils/utils";
 import { useContext } from "react";
-import { TagsFilterContext } from "./main-page-blocks/projects-block";
+import { TagsFilterContext } from "./projects-block";
 
 // Defines the color of the tag based on whether it is selected or not
 export const tagColor = (tagsFilter: string[], tag: string) => {

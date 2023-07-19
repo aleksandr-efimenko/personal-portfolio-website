@@ -1,7 +1,7 @@
 import { type AppType } from "next/app";
 import { api } from "@/utils/api";
 import "@/styles/globals.css";
-import { RootLayout } from "@/layout";
+import { RootLayout } from "@/components/layout/layout";
 import { ThemeProvider } from "next-themes";
 
 const MyApp: AppType = ({ Component, pageProps }) => {

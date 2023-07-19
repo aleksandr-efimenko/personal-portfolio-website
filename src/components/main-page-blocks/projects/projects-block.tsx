@@ -1,9 +1,9 @@
 import { type StaticImageData } from "next/image";
-import { ProjectCard } from "../project-card";
+import { ProjectCard } from "./project-card";
 import { projectsData } from "@/data/projects";
 import { createContext, useReducer, useState } from "react";
-import { StyledButton } from "../ui/styled-button";
-import { TagCloud } from "../tag-cloud";
+import { StyledButton } from "../../ui/styled-button";
+import { TagCloud } from "./tag-cloud";
 import {
   TagsReducerActionType,
   tagsReducer,

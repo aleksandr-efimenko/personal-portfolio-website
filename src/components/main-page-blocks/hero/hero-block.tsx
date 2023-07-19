@@ -1,9 +1,9 @@
-import { ImageSequenceAnimation } from "../image-sequence-animation";
+import { ImageSequenceAnimation } from "./image-sequence-animation";
 import { heroBlockImages } from "./hero-block-images";
 import patternCircle from "~/pattern-circle.svg";
 import patternRings from "~/pattern-rings.svg";
 import Image, { type StaticImageData } from "next/image";
-import { StyledLink } from "../ui/styled-link";
+import { StyledLink } from "../../ui/styled-link";
 
 const pageData = {
   title: "Nice to meet you!",

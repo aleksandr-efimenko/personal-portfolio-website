@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useContext } from "react";
-import { TagsFilterContext } from "./main-page-blocks/projects-block";
+import { TagsFilterContext } from "./projects-block";
 import { cn } from "@/utils/utils";
 import { tagColor } from "./tag-cloud";
 

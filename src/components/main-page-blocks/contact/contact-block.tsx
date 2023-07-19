@@ -1,4 +1,4 @@
-import { ContactForm } from "../contact-form";
+import { ContactForm } from "./contact-form";
 import Image, { type StaticImageData } from "next/image";
 import patternDots from "~/pattern-dots.svg";
 
