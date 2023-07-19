@@ -3,6 +3,8 @@ import spaceImage from "~/project-screenshots/space-tourism.png";
 import passwordGenImage from "~/project-screenshots/password-generator.png";
 import inspirationalImg from "~/project-screenshots/inspirational-page.png";
 import dropdomainImg from "~/project-screenshots/dropdomains.png";
+import memoryGameImg from "~/project-screenshots/memory-game.png";
+import marathonPrpImg from "~/project-screenshots/marathon-preparation-plan-2.png";
 import { type ProjectData } from "@/components/main-page-blocks/projects-block";
 
 export const projectsData: ProjectData[] = [
@@ -36,7 +38,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Password generator",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    tags: ["React", "TypeScript", "Next.js", "CSS Modules"],
     links: {
       projectInfo: "/password-generator",
       livePreview: "https://password-generator.alexefimenko.com/",
@@ -71,6 +73,33 @@ export const projectsData: ProjectData[] = [
       github: "",
     },
     image: dropdomainImg,
+  },
+  {
+    title: "Memory game",
+    tags: ["React", "JavaScript", "CSS Modules"],
+    links: {
+      projectInfo: "/memory-game",
+      livePreview: "https://memory-game.alexefimenko.com/",
+      github: "https://github.com/aleksandr-efimenko/memory_game_react",
+    },
+    image: memoryGameImg,
+  },
+  {
+    title: "ChatGPT Marathon preparation plan ",
+    tags: [
+      "OpenAI API",
+      "Typescript",
+      "React",
+      "Next.js",
+      "Full calendar",
+      "SurveyJS",
+    ],
+    links: {
+      projectInfo: "/marathon-preparation-plan-chatgpt",
+      livePreview: "https://marathon-preparation-plan.alexefimenko.com/",
+      github: "https://github.com/aleksandr-efimenko/running-plan-chatgpt",
+    },
+    image: marathonPrpImg,
   },
 ];
 

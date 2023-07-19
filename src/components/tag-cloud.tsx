@@ -5,10 +5,10 @@ import { TagsFilterContext } from "./main-page-blocks/projects-block";
 
 // Defines the color of the tag based on whether it is selected or not
 export const tagColor = (tagsFilter: string[], tag: string) => {
-  if (tagsFilter.includes(tag)) {
-    return "border-light-green text-light-green text-light-green ";
+  if (tagsFilter.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())) {
+    return "border-light-green text-light-green";
   } else {
-    return " text-foreground";
+    return "text-foreground";
   }
 };
 
@@ -31,7 +31,7 @@ export function TagCloud() {
                 `rounded-full border border-foreground px-3 
             text-xl transition-all 
             duration-200 hover:border-light-green
-            hover:bg-foreground/20 hover:text-light-green
+            hover:text-light-green hover:shadow-sm hover:shadow-foreground
             `,
                 tagColor(tagsFilter, tag)
               )}

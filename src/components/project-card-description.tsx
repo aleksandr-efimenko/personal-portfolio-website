@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { TagsFilterContext } from "./main-page-blocks/projects-block";
+import { cn } from "@/utils/utils";
+import { tagColor } from "./tag-cloud";
 
 export type ProjectCardDescriptionProps = {
   projectInfoLink: string;
@@ -13,7 +15,7 @@ export function ProjectCardDescription({
   title,
   tags,
 }: ProjectCardDescriptionProps) {
-  const { dispatch } = useContext(TagsFilterContext);
+  const { tagsFilter, dispatch } = useContext(TagsFilterContext);
   const handleTagFilter = (tag: string) => {
     if (tag) {
       dispatch({ type: "ADD_OR_REMOVE_TAG", payload: tag });
@@ -32,9 +34,13 @@ export function ProjectCardDescription({
           <button
             onClick={() => handleTagFilter(tag)}
             key={tag}
-            className="text-body font-medium uppercase text-dark-gray 
+            className={cn(
+              `text-body uppercase opacity-75 
             transition-all
-            duration-200 hover:text-light-green dark:text-light-gray hover:dark:text-light-green"
+            duration-200 hover:text-light-green
+            hover:dark:text-light-green`,
+              tagColor(tagsFilter, tag)
+            )}
           >
             {tag}
           </button>
