@@ -23,23 +23,27 @@ export function TagCloud() {
   return (
     <ul className="flex flex-wrap gap-2">
       {tagsWithCount &&
-        Object.entries(tagsWithCount).map(([tag, count]) => (
-          <li key={tag}>
-            <button
-              onClick={() => handleTagFilter(tag)}
-              className={cn(
-                `rounded-full border border-foreground px-3 
+        Object.entries(tagsWithCount)
+          .sort((a, b) =>
+            b[1] === a[1] ? a[0].localeCompare(b[0]) : b[1] - a[1]
+          )
+          .map(([tag, count]) => (
+            <li key={tag}>
+              <button
+                onClick={() => handleTagFilter(tag)}
+                className={cn(
+                  `rounded-full border border-foreground px-3 
             text-xl transition-all 
             duration-200 hover:border-light-green
-            hover:text-light-green hover:shadow-sm hover:shadow-foreground
+            hover:text-light-green hover:shadow-md hover:shadow-light-green
             `,
-                tagColor(tagsFilter, tag)
-              )}
-            >
-              {tag} ({count}) {tagsFilter.includes(tag) ? "✓" : ""}
-            </button>
-          </li>
-        ))}
+                  tagColor(tagsFilter, tag)
+                )}
+              >
+                {tag} ({count}) {tagsFilter.includes(tag) ? "✓" : ""}
+              </button>
+            </li>
+          ))}
     </ul>
   );
 }

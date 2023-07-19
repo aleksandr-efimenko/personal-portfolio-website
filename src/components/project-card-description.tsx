@@ -30,21 +30,23 @@ export function ProjectCardDescription({
         {title}
       </Link>
       <div className="flex flex-wrap gap-x-2">
-        {tags.map((tag) => (
-          <button
-            onClick={() => handleTagFilter(tag)}
-            key={tag}
-            className={cn(
-              `text-body uppercase opacity-75 
+        {tags
+          .sort((a, b) => a.localeCompare(b))
+          .map((tag) => (
+            <button
+              onClick={() => handleTagFilter(tag)}
+              key={tag}
+              className={cn(
+                `text-body uppercase opacity-75 
             transition-all
             duration-200 hover:text-light-green
             hover:dark:text-light-green`,
-              tagColor(tagsFilter, tag)
-            )}
-          >
-            {tag}
-          </button>
-        ))}
+                tagColor(tagsFilter, tag)
+              )}
+            >
+              {tag}
+            </button>
+          ))}
       </div>
     </div>
   );

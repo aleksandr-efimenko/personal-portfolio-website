@@ -17,6 +17,8 @@ export const projectsData: ProjectData[] = [
       "Tailwind CSS",
       "MongoDB",
       "Prisma",
+      "tRPC",
+      "NextAuth.js",
     ],
     links: {
       projectInfo: "/kanban-desk",
@@ -35,6 +37,23 @@ export const projectsData: ProjectData[] = [
         "https://github.com/aleksandr-efimenko/space-tourism-website-frontendmentor",
     },
     image: spaceImage,
+  },
+  {
+    title: "Dropdomains",
+    tags: [
+      "C#",
+      "MVC",
+      ".Net core",
+      "Razor pages",
+      "RabbitMQ",
+      "MS SQL Server",
+    ],
+    links: {
+      projectInfo: "/dropdomains",
+      livePreview: "",
+      github: "",
+    },
+    image: dropdomainImg,
   },
   {
     title: "Password generator",
@@ -57,23 +76,7 @@ export const projectsData: ProjectData[] = [
     },
     image: inspirationalImg,
   },
-  {
-    title: "Dropdomains",
-    tags: [
-      "C#",
-      "MVC",
-      ".Net core",
-      "Razor pages",
-      "RabbitMQ",
-      "MS SQL Server",
-    ],
-    links: {
-      projectInfo: "/dropdomains",
-      livePreview: "",
-      github: "",
-    },
-    image: dropdomainImg,
-  },
+
   {
     title: "Memory game",
     tags: ["React", "JavaScript", "CSS Modules"],
