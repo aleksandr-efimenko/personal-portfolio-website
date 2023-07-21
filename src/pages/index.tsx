@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { HeroBlock } from "@/components/main-page-blocks/hero/hero-block";
 import { ProjectsBlock } from "@/components/main-page-blocks/projects/projects-block";
 import { ContactBlock } from "@/components/main-page-blocks/contact/contact-block";
+import { TimelineBlock } from "@/components/main-page-blocks/timeline/timeline-block";
 
 export default function Home() {
   return (
@@ -15,6 +16,10 @@ export default function Home() {
         <div className="container py-20">
           <ProjectsBlock />
         </div>
+        <div className="container py-20">
+          <TimelineBlock />
+        </div>
+
         <div className="w-full bg-zinc-400 py-20 dark:bg-dark-gray">
           <ContactBlock />
         </div>
