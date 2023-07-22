@@ -77,10 +77,16 @@ export function TimelineBlock() {
           <VerticalTimelineElement
             key={index}
             className="vertical-timeline-element--work"
-            contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-            contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
+            contentStyle={{
+              background: "hsl(var(--muted))",
+              color: "hsl(var(--foreground))",
+            }}
+            contentArrowStyle={{ borderRight: "7px solid  hsl(var(--muted))" }}
             date={element.date}
-            iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+            iconStyle={{
+              background: "hsl(var(--background))",
+              color: "hsl(var(--foreground))",
+            }}
             icon={element.icon}
           >
             <h3 className="vertical-timeline-element-title">{element.title}</h3>
