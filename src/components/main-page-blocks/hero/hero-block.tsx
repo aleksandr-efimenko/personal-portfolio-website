@@ -35,8 +35,8 @@ export function HeroBlock() {
       <div className="flex w-full flex-col justify-center gap-10">
         <div className="flex h-full flex-col gap-10">
           <div>
-            <h1 className="text-heading-xl">{pageData.title}</h1>
-            <h2 className="text-heading-xl">
+            <h1 className="responsive-heading-xl">{pageData.title}</h1>
+            <h2 className="responsive-heading-xl">
               {pageData.subtitle}
               <span
                 className="border-b-[0.375rem] border-light-green transition-all

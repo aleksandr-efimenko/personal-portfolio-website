@@ -146,9 +146,8 @@ const timelineElements = [
 
 export function TimelineBlock() {
   return (
-    <div className="flex flex-col gap-10">
-      <h2 className="text-heading-xl">Timeline</h2>
-
+    <div className="relative flex flex-col gap-10">
+      <h2 className="responsive-heading-xl">Timeline</h2>
       <VerticalTimeline
         layout="1-column-left"
         lineColor="hsl(var(--light-green))"

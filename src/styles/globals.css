@@ -79,6 +79,12 @@
 }
 
 @layer base {
+  .responsive-heading-xl {
+    @apply text-heading-ml md:text-heading-l lg:text-heading-xl;
+  }
+}
+
+@layer base {
   * {
     @apply border-border;
   }

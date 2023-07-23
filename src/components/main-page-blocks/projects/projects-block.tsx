@@ -46,13 +46,13 @@ export function ProjectsBlock() {
     >
       <div className="flex flex-col gap-10">
         <div className="flex w-full items-center justify-between">
-          <h2 className="text-heading-xl">Technologies</h2>
+          <h2 className="responsive-heading-xl">Technologies and Projects</h2>
           {isFiltered && (
             <StyledButton onClick={resetTagsFilter}>Reset</StyledButton>
           )}
         </div>
         <TagCloud />
-        <h2 className="text-heading-xl">Projects</h2>
+
         <div
           className="grid w-full auto-cols-fr grid-cols-1 gap-6 gap-y-16
        md:grid-cols-2 lg:grid-cols-3"

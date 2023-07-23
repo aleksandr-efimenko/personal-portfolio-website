@@ -15,7 +15,7 @@ export function ContactBlock() {
       />
 
       <div className="flex  flex-1 flex-col gap-9">
-        <h3 className="text-heading-xl">Contact</h3>
+        <h2 className="responsive-heading-xl">Contact</h2>
         <p className="text-body">{blockDescription}</p>
       </div>
       <div className="flex-1">

@@ -33,6 +33,13 @@ module.exports = {
             letterSpacing: "-0.0938rem",
           },
         ],
+        "heading-ml": [
+          "2rem",
+          {
+            lineHeight: "2.5rem",
+            fontWeight: "700",
+          },
+        ],
         "heading-m": [
           "1.5rem",
           {
