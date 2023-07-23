@@ -4,6 +4,8 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Image, { type StaticImageData } from "next/image";
+import wavesPattern from "~/pattern-waves.svg";
 
 const timelineElements = [
   {
@@ -148,6 +150,11 @@ export function TimelineBlock() {
   return (
     <div className="relative flex flex-col gap-10">
       <h2 className="responsive-heading-xl">Timeline</h2>
+      <Image
+        src={wavesPattern as StaticImageData}
+        alt="abstract pattern dots"
+        className="absolute -left-96 top-32 -z-10 w-full  opacity-10"
+      />
       <VerticalTimeline
         layout="1-column-left"
         lineColor="hsl(var(--light-green))"

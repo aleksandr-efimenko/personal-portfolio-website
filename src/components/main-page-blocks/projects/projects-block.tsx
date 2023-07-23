@@ -1,14 +1,15 @@
-import { type StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { ProjectCard } from "./project-card";
 import { projectsData } from "@/data/projects";
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 import { StyledButton } from "../../ui/styled-button";
 import { TagCloud } from "./tag-cloud";
 import {
-  TagsReducerActionType,
+  type TagsReducerActionType,
   tagsReducer,
   tagsReducerInitialState,
 } from "@/reducers/tags-reducer";
+import figuresPattern from "~/pattern-figures.svg";
 
 export type ProjectData = {
   title: string;
@@ -44,7 +45,12 @@ export function ProjectsBlock() {
     <TagsFilterContext.Provider
       value={{ tagsFilter: tags.tagsFilter, dispatch }}
     >
-      <div className="flex flex-col gap-10">
+      <div className="relative flex flex-col gap-10">
+        <Image
+          src={figuresPattern as StaticImageData}
+          alt="abstract pattern dots"
+          className="absolute -left-96 top-32 -z-10 w-full  opacity-10"
+        />
         <div className="flex w-full items-center justify-between">
           <h2 className="responsive-heading-xl">Technologies and Projects</h2>
           {isFiltered && (
