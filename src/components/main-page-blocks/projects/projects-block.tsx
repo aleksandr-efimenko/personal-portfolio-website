@@ -24,7 +24,7 @@ export type ProjectData = {
 
 export const TagsFilterContext = createContext({
   tagsFilter: [] as string[],
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   dispatch: (action: TagsReducerActionType) => {},
 });
 
