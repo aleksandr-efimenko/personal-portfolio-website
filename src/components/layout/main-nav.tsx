@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils/utils";
-import { ModeToggle } from "./theme-toggle";
 
 const navItems = [
   {
@@ -34,7 +33,6 @@ export function MainNav() {
           {item.name}
         </Link>
       ))}
-      <ModeToggle />
     </nav>
   );
 }

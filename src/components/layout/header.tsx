@@ -1,17 +1,15 @@
-import { MainNav } from "./main-nav";
 import { Logo } from "./logo";
 import { SocialLinks } from "./social-links";
+import { ModeToggle } from "./theme-toggle";
 
 export function Header() {
   return (
     <header className="container relative z-10 flex w-full items-center justify-between py-10">
-      <div className="flex-1">
+      <div className="flex items-center justify-center gap-5">
         <Logo />
+        <ModeToggle />
       </div>
-      <MainNav />
-      <div className="flex-1">
-        <SocialLinks />
-      </div>
+      <SocialLinks />
     </header>
   );
 }
