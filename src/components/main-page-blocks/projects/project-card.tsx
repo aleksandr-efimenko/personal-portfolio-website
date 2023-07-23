@@ -21,14 +21,14 @@ export function ProjectCard(props: ProjectData) {
 
         <div className="absolute inset-0 hidden bg-black opacity-75  group-hover:flex"></div>
         <div className="absolute inset-0 hidden flex-col items-center justify-evenly py-4 group-hover:flex">
-          {links.projectInfo && (
+          {/* {links.projectInfo && (
             <StyledLink
               className="text-white"
               href={`/projects${links.projectInfo}`}
             >
               Description
             </StyledLink>
-          )}
+          )} */}
           {links.livePreview && (
             <StyledLink className="text-white" href={links.livePreview}>
               Visit site
@@ -38,6 +38,9 @@ export function ProjectCard(props: ProjectData) {
             <StyledLink className="text-white" href={links.github}>
               Source code
             </StyledLink>
+          )}
+          {!links.livePreview && !links.github && (
+            <p className="uppercase text-white">Private project</p>
           )}
         </div>
       </div>
