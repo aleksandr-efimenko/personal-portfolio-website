@@ -28,7 +28,7 @@ const timelineElements = [
     ],
   },
   {
-    title: "Stydying Full Stack Web Development",
+    title: "Studying Full Stack Web Development",
     subtitle: "Batumi, Georgia",
     date: "November 2022 – May 2023 (7 months)",
     icon: <Icons.education />,

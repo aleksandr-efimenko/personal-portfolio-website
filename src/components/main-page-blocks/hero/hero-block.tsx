@@ -19,7 +19,7 @@ const pageData = {
     },
     {
       label: "Download CV.pdf",
-      href: "/",
+      href: "/CV.pdf",
     },
   ],
 };

@@ -9,7 +9,7 @@ export const calculateCurrentImageIndex = (
   imgArray: StaticImageData[]
 ) => {
   //amplifies
-  const scrollRatio = 10;
+  const scrollRatio = 100;
 
   const imageIndex = Math.floor(
     scrollYProgress * (imgArray.length - 1) * scrollRatio
@@ -28,27 +28,28 @@ export function ImageSequenceAnimation({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const imageIndex = calculateCurrentImageIndex(latest, imagesArray);
-    if (imageIndex < 0 || imageIndex > imagesArray.length - 1) return;
-    if (imageIndex !== currentImageIndex) {
-      setCurrentImageIndex(imageIndex);
+    if (latest > 0) {
+      setCurrentImageIndex(1);
+    } else {
+      setCurrentImageIndex(0);
     }
   });
 
   return (
     <div
-      className="dark:bg-background-dark flex h-[45rem] w-[27rem] flex-col justify-end
-    overflow-hidden rounded-3xl bg-light-green
+      className="dark:bg- flex h-[45rem] w-[27rem] flex-col justify-end
+    overflow-hidden rounded-3xl bg-light-gray dark:bg-dark-gray
     "
     >
       {imagesArray.map((item, i) => (
         <Image
-          height={445}
-          width={720}
+          quality={100}
+          height={1000}
+          width={1000}
           src={item.src}
           key={i}
           alt="my photo"
-          className=" scale-150 "
+          className=" -translate-y-16  scale-150"
           style={{
             display: i !== currentImageIndex ? "none" : "block",
           }}
