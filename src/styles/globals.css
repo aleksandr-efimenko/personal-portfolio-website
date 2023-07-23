@@ -86,3 +86,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* copied from https://codepen.io/alvarotrigo/pen/PoKMyNO -> */
+.animate-charcter {
+  background-image: linear-gradient(
+    -225deg,
+    hsl(var(--light-gray)) 0%,
+    hsl(var(--light-green)) 29%,
+    hsl(var(--muted-foreground)) 67%,
+    hsl(var(--accent)) 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 10s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+/* <- copied from https://codepen.io/alvarotrigo/pen/PoKMyNO  */
