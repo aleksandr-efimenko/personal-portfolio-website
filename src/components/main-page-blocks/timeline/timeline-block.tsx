@@ -159,10 +159,12 @@ export function TimelineBlock() {
             contentStyle={{
               background: "hsl(var(--muted))",
               color: "hsl(var(--foreground))",
+              boxShadow: "none",
             }}
             contentArrowStyle={{ borderRight: "7px solid  hsl(var(--muted))" }}
             date={element.date}
             iconStyle={{
+              boxShadow: "hsl(var(--light-green)) 0px 0px 0px 3px ",
               background: "hsl(var(--background))",
             }}
             icon={element.icon}
