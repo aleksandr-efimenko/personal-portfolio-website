@@ -2,6 +2,7 @@ import { tagsWithCount } from "@/data/projects";
 import { cn } from "@/utils/utils";
 import { useContext } from "react";
 import { TagsFilterContext } from "./projects-block";
+import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 
 // Defines the color of the tag based on whether it is selected or not
 export const tagColor = (tagsFilter: string[], tag: string) => {
@@ -32,15 +33,16 @@ export function TagCloud() {
               <button
                 onClick={() => handleTagFilter(tag)}
                 className={cn(
-                  `rounded-full border border-foreground px-3 
-            text-xl transition-all 
-            duration-200 hover:border-light-green
-            hover:text-light-green hover:shadow-md hover:shadow-light-green
+                  `flex items-center justify-center gap-2 
+            whitespace-nowrap rounded-full border border-foreground px-3 text-xl
+            transition-all duration-200
+            hover:border-light-green hover:text-light-green hover:shadow-md hover:shadow-light-green
             `,
                   tagColor(tagsFilter, tag)
                 )}
               >
-                {tag} ({count}) {tagsFilter.includes(tag) ? "✓" : ""}
+                {getTechnologyLogo(tag)} {tag} ({count}){" "}
+                {tagsFilter.includes(tag) ? "✓" : ""}
               </button>
             </li>
           ))}

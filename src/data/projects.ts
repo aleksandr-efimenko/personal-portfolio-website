@@ -119,6 +119,16 @@ export const projectsData: ProjectData[] = [
   },
 ];
 
+export const tagsList = projectsData
+  .map((project) => project.tags)
+  .flat()
+  .reduce((acc, tag) => {
+    if (!acc.includes(tag)) {
+      acc.push(tag);
+    }
+    return acc;
+  }, [] as string[]);
+
 export const tagsWithCount = projectsData
   .map((project) => project.tags)
   .reduce((acc, tag) => {
