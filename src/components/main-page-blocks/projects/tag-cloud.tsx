@@ -34,9 +34,9 @@ export function TagCloud() {
                 onClick={() => handleTagFilter(tag)}
                 className={cn(
                   `flex items-center justify-center gap-2 
-            whitespace-nowrap rounded-full border border-foreground px-3 text-xl
-            transition-all duration-200
-            hover:border-light-green hover:text-light-green hover:shadow-md hover:shadow-light-green
+            whitespace-nowrap rounded-full border border-foreground px-3 text-body transition-all
+            duration-200 hover:border-light-green
+            hover:text-light-green hover:shadow-md hover:shadow-light-green md:text-xl
             `,
                   tagColor(tagsFilter, tag)
                 )}

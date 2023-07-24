@@ -33,7 +33,7 @@ export function ProjectCardDescription({
       >
         {title}
       </Link>
-      <div className=" flex flex-wrap gap-x-2">
+      <div className=" flex flex-wrap gap-x-4">
         {tags
           .sort((a, b) => a.localeCompare(b))
           .map((tag) => (

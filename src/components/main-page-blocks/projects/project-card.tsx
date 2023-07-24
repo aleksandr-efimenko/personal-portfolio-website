@@ -36,7 +36,7 @@ export function ProjectCard(props: ProjectData) {
           )}
           {links.github && (
             <StyledLink className="text-white" href={links.github}>
-              Source code
+              Github repo
             </StyledLink>
           )}
           {!links.livePreview && !links.github && (

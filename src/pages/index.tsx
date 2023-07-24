@@ -13,10 +13,10 @@ export default function Home() {
       </Head>
       <section className="flex w-full flex-col">
         <HeroBlock />
-        <div className="container py-20">
+        <div className="container py-10 md:py-20">
           <ProjectsBlock />
         </div>
-        <div className="container py-20">
+        <div className="container pb-20 pt-10 md:py-20">
           <TimelineBlock />
         </div>
 
