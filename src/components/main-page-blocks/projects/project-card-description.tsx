@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { TagsFilterContext } from "./projects-block";
 import { cn } from "@/utils/utils";
 import { tagColor } from "./tag-cloud";
+import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 
 export type ProjectCardDescriptionProps = {
   projectInfoLink: string;
@@ -32,7 +33,7 @@ export function ProjectCardDescription({
       >
         {title}
       </Link>
-      <div className="flex flex-wrap gap-x-2">
+      <div className=" flex flex-wrap gap-x-2">
         {tags
           .sort((a, b) => a.localeCompare(b))
           .map((tag) => (
@@ -40,14 +41,14 @@ export function ProjectCardDescription({
               onClick={() => handleTagFilter(tag)}
               key={tag}
               className={cn(
-                `text-body uppercase opacity-75 
-            transition-all
-            duration-200 hover:text-light-green
+                `flex items-center gap-1 
+             text-body uppercase opacity-75
+            transition-all duration-200 hover:text-light-green
             hover:dark:text-light-green`,
                 tagColor(tagsFilter, tag)
               )}
             >
-              {tag}
+              {getTechnologyLogo(tag)} {tag}
             </button>
           ))}
       </div>
