@@ -33,10 +33,12 @@ export function HeroBlock() {
         className=" absolute -left-32 top-28 z-10"
       />
       <div className="flex w-full flex-col justify-center gap-10">
-        <div className="flex h-full flex-col gap-10">
+        <div className="mt-96 flex h-full flex-col gap-10 md:mt-0">
           <div>
-            <h1 className="responsive-heading-xl">{pageData.title}</h1>
-            <h2 className="responsive-heading-xl">
+            <h1 className="responsive-heading-xl text-center md:text-left">
+              {pageData.title}
+            </h1>
+            <h2 className="responsive-heading-xl text-center md:text-left">
               {pageData.subtitle}
               <span
                 className="border-b-[0.375rem] border-light-green transition-all
@@ -47,9 +49,11 @@ export function HeroBlock() {
               {pageData.subtitleEnd}
             </h2>
           </div>
-          <p className="max-w-md text-body">{pageData.description}</p>
+          <p className="w-full text-center text-body md:max-w-md md:text-left">
+            {pageData.description}
+          </p>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col items-center gap-3 md:items-start">
           {pageData.links.map((link) => (
             <StyledLink href={link.href} key={link.href}>
               {link.label}
@@ -57,12 +61,15 @@ export function HeroBlock() {
           ))}
         </div>
       </div>
-      <Image
-        src={patternCircle as StaticImageData}
-        alt="pattern circle"
-        className=" absolute right-[25rem] z-10"
-      />
-      <div className="absolute -top-[7.25rem] right-10 -z-10">
+      <div
+        className="absolute right-1/2 top-0 z-10 translate-x-1/2 md:right-10
+      md:-z-10 md:translate-x-0 lg:-top-[7.25rem]"
+      >
+        <Image
+          src={patternCircle as StaticImageData}
+          alt="pattern circle"
+          className=" absolute -right-16 bottom-16 -z-10 md:-left-16 md:bottom-16 md:z-10 lg:bottom-32"
+        />
         <ImageSequenceAnimation imagesArray={heroBlockImages} />
       </div>
     </div>

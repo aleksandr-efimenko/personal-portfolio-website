@@ -6,18 +6,18 @@ export const socialLinks = [
   {
     name: "GitHub",
     href: siteConfig.links.github,
-    icon: <Icons.gitHub className="h-6 w-6" />,
+    icon: <Icons.gitHub className="h-5 w-5 md:h-6 md:w-6" />,
   },
   {
     name: "LinkedIn",
     href: siteConfig.links.linkedin,
-    icon: <Icons.linkedIn className="h-6 w-6" />,
+    icon: <Icons.linkedIn className="h-5 w-5 md:h-6 md:w-6" />,
   },
 ];
 
 export function SocialLinks() {
   return (
-    <div className="mr-10 flex justify-end gap-10">
+    <div className="flex justify-end gap-4 md:mr-10 md:gap-10">
       {socialLinks.map((item) => (
         <Link
           href={item.href}

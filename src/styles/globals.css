@@ -94,7 +94,7 @@
 }
 
 /* copied from https://codepen.io/alvarotrigo/pen/PoKMyNO -> */
-.animate-charcter {
+.animate-character {
   background-image: linear-gradient(
     -225deg,
     hsl(var(--light-gray)) 0%,

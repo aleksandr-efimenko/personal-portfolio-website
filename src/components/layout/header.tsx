@@ -7,7 +7,9 @@ export function Header() {
     <header className="container relative z-10 flex w-full items-center justify-between py-10">
       <div className="flex items-center justify-center gap-5">
         <Logo />
-        <ModeToggle />
+        <div className="hidden md:block">
+          <ModeToggle />
+        </div>
       </div>
       <SocialLinks />
     </header>

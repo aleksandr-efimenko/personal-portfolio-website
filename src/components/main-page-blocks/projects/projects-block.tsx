@@ -51,7 +51,7 @@ export function ProjectsBlock() {
           alt="abstract pattern dots"
           className="absolute -left-96 top-32 -z-10 w-full  opacity-10"
         />
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
           <h2 className="responsive-heading-xl">Technologies and Projects</h2>
           {isFiltered && (
             <StyledButton onClick={resetTagsFilter}>Reset</StyledButton>
