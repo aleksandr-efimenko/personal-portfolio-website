@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { type StaticImageData } from "next/image";
 import Image from "next/image";
 import firstSlideImg from "~/main-block-images/1.png";
 import secondSlideImg from "~/main-block-images/2.png";

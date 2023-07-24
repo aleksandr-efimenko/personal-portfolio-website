@@ -6,6 +6,8 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import Image, { type StaticImageData } from "next/image";
 import wavesPattern from "~/pattern-waves.svg";
+import { useMediaQuery } from "react-responsive";
+import { useState, useEffect } from "react";
 
 const timelineElements = [
   {
@@ -147,6 +149,15 @@ const timelineElements = [
 ];
 
 export function TimelineBlock() {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [animated, setAnimated] = useState(false);
+  useEffect(() => {
+    if (isMobile) {
+      setAnimated(false);
+    } else {
+      setAnimated(true);
+    }
+  }, [isMobile, animated]);
   return (
     <div className="relative flex flex-col gap-10">
       <h2 className="responsive-heading-xl">Timeline</h2>
@@ -156,7 +167,7 @@ export function TimelineBlock() {
         className="absolute -left-96 top-32 -z-10 w-full  opacity-10"
       />
       <VerticalTimeline
-        animate={false}
+        animate={animated}
         layout="1-column-left"
         lineColor="hsl(var(--light-green))"
       >
