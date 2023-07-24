@@ -11,7 +11,12 @@ export const socialLinks = [
   {
     name: "LinkedIn",
     href: siteConfig.links.linkedin,
-    icon: <Icons.linkedIn className="h-5 w-5 md:h-6 md:w-6" />,
+    icon: (
+      <Icons.linkedIn
+        fill="hsl(var(--foreground))"
+        className="h-5 w-5 md:h-6 md:w-6"
+      />
+    ),
   },
 ];
 
@@ -22,7 +27,7 @@ export function SocialLinks() {
         <Link
           href={item.href}
           key={item.name}
-          className="text-white transition-colors hover:text-light-green"
+          className=" transition-colors hover:text-light-green"
         >
           {item.icon}
         </Link>
