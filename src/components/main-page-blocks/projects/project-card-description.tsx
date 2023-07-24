@@ -25,7 +25,10 @@ export function ProjectCardDescription({
     <div className="mt-4">
       <Link
         href={projectInfoLink}
-        className="text-heading-m uppercase transition-all duration-200 hover:text-light-green"
+        className={cn(
+          "text-heading-m uppercase transition-all duration-200  ",
+          projectInfoLink ? " hover:text-light-green" : "cursor-not-allowed"
+        )}
       >
         {title}
       </Link>

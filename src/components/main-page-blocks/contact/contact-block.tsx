@@ -13,6 +13,7 @@ export function ContactBlock() {
     <div
       className="container relative flex  flex-col justify-between 
     gap-16  md:flex-row md:gap-24 lg:gap-48"
+      id="contact"
     >
       <Image
         src={patternDots as StaticImageData}

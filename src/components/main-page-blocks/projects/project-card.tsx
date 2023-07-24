@@ -20,7 +20,7 @@ export function ProjectCard(props: ProjectData) {
         />
 
         <div className="absolute inset-0 hidden bg-black opacity-75  group-hover:flex"></div>
-        <div className="absolute inset-0 hidden flex-col items-center justify-evenly py-4 group-hover:flex">
+        <div className="absolute inset-0 hidden flex-col items-center justify-center gap-5 py-4 group-hover:flex">
           {/* {links.projectInfo && (
             <StyledLink
               className="text-white"
@@ -45,7 +45,7 @@ export function ProjectCard(props: ProjectData) {
         </div>
       </div>
       <ProjectCardDescription
-        projectInfoLink={links.projectInfo}
+        projectInfoLink={links.github}
         title={title}
         tags={tags}
       />
