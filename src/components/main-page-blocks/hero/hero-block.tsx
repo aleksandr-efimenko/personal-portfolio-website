@@ -70,7 +70,7 @@ export function HeroBlock() {
           alt="pattern circle"
           className=" absolute -right-16 bottom-16 -z-10 md:-left-16 md:bottom-16 md:z-10 lg:bottom-32"
         />
-        <ImageSequenceAnimation imagesArray={heroBlockImages} />
+        <ImageSequenceAnimation />
       </div>
     </div>
   );

@@ -19,6 +19,31 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  react: (props: IconProps) => (
+    <svg viewBox="0 0 512 512" {...props}>
+      <path
+        fill={props.fill || "currentColor"}
+        d="M256 0C114.84 0 0 114.84 0 256s114.84 256 256 256 256-114.84 256-256S397.16 0 256 0zm-2.5 384.5c-57.5 0-104-46.5-104-104s46.5-104 104-104 104 46.5 104 104-46.5 104-104 104zm-64.5-160h129v-32h-129v32zm0-64h129v-32h-129v32zm0-64h129v-32h-129v32z"
+      ></path>
+    </svg>
+  ),
+  nextjs: (props: IconProps) => (
+    <svg viewBox="0 0 512 512" {...props}>
+      <path
+        fill={props.fill || "currentColor"}
+        d="M0 0v512h512V0H0zm480 480H32V32h448v448z"
+      ></path>
+      <path
+        fill={props.fill || "currentColor"}
+        d="M256 256h128v128H256z"
+      ></path>
+      <path
+        fill={props.fill || "currentColor"}
+        d="M256 0v128h128V0H256zm0 384h128v128H256z"
+      ></path>
+      <path fill={props.fill || "currentColor"} d="M0 256h128v128H0z"></path>
+    </svg>
+  ),
 
   spinner: (props: IconProps) => (
     <svg
