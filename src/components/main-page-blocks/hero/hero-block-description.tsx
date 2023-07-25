@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { StyledLink } from "../../ui/styled-link";
 
 const pageData = {
@@ -19,15 +20,38 @@ const pageData = {
   ],
 };
 
+const animationVariants = {
+  initial: {
+    opacity: 0,
+    filter: "blur(50px)",
+    scale: 1.5,
+  },
+  animate: {
+    opacity: 1,
+    filter: "blur(0px)",
+    scale: 1,
+  },
+};
+
 export function HeroDescription() {
   return (
     <>
       <div className="mt-96 flex h-full flex-col gap-5 md:mt-0 lg:gap-10">
         <div>
-          <h1 className="responsive-heading-xl text-center md:text-left">
+          <motion.h1
+            initial={animationVariants.initial}
+            animate={animationVariants.animate}
+            transition={{ duration: 0.5 }}
+            className="responsive-heading-xl text-center md:text-left"
+          >
             {pageData.title}
-          </h1>
-          <h2 className="responsive-heading-xl text-center md:text-left">
+          </motion.h1>
+          <motion.h2
+            initial={animationVariants.initial}
+            animate={animationVariants.animate}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="responsive-heading-xl text-center md:text-left"
+          >
             {pageData.subtitle}
             <span
               className="border-b-[0.375rem] border-light-green transition-all
@@ -36,19 +60,33 @@ export function HeroDescription() {
               {pageData.subtitleHighlight}
             </span>
             {pageData.subtitleEnd}
-          </h2>
+          </motion.h2>
         </div>
-        <p className="w-full text-center text-body md:max-w-md md:text-left">
+        <motion.p
+          initial={animationVariants.initial}
+          animate={animationVariants.animate}
+          transition={{ duration: 0.5, delay: 1 }}
+          className="w-full text-center text-body md:max-w-md md:text-left"
+        >
           {pageData.description}
-        </p>
+        </motion.p>
       </div>
-      <div className="flex flex-col items-center gap-3 md:items-start">
+      <motion.div
+        initial={{
+          x: -500,
+        }}
+        animate={{
+          x: 0,
+        }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+        className="flex flex-col items-center gap-3 md:items-start"
+      >
         {pageData.links.map((link) => (
           <StyledLink href={link.href} key={link.href}>
             {link.label}
           </StyledLink>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 }

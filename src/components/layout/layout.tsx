@@ -16,7 +16,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
       </Head>
       <main
         className={cn(
-          " -z-20 min-h-screen bg-background text-foreground",
+          " -z-20 min-h-screen overflow-hidden scroll-smooth bg-background text-foreground",
           // fontGrotesk.variable
           fontGrotesk.className
         )}

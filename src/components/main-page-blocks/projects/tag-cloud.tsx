@@ -3,6 +3,7 @@ import { cn } from "@/utils/utils";
 import { useContext } from "react";
 import { TagsFilterContext } from "./projects-block";
 import { getTechnologyLogo } from "@/data/tags-logo-matcher";
+import { AnimatePresence, motion } from "framer-motion";
 
 // Defines the color of the tag based on whether it is selected or not
 export const tagColor = (tagsFilter: string[], tag: string) => {
@@ -30,20 +31,35 @@ export function TagCloud() {
           )
           .map(([tag, count]) => (
             <li key={tag}>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.5 }}
+                transition={{
+                  duration: 0.1,
+                  delay: 0,
+                }}
                 onClick={() => handleTagFilter(tag)}
                 className={cn(
-                  `flex items-center justify-center gap-2 
+                  `flex items-center justify-center gap-2 overflow-hidden
             whitespace-nowrap rounded-full border border-foreground px-3 text-body transition-all
-            duration-200 hover:border-light-green
+            duration-200 hover:border-light-green hover:bg-background
             hover:text-light-green hover:shadow-md hover:shadow-light-green md:text-xl
             `,
                   tagColor(tagsFilter, tag)
                 )}
               >
                 {getTechnologyLogo(tag)} {tag} ({count}){" "}
-                {tagsFilter.includes(tag) ? "✓" : ""}
-              </button>
+                <AnimatePresence>
+                  {tagsFilter.includes(tag) && (
+                    <motion.p
+                      initial={{ x: -100 }}
+                      animate={{ x: 0 }}
+                      exit={{ x: 100 }}
+                    >
+                      {"✓"}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </motion.button>
             </li>
           ))}
     </ul>
