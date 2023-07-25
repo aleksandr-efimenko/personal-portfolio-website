@@ -13,10 +13,10 @@ const pageData = {
       label: "Contact me",
       href: "#contact",
     },
-    {
-      label: "Download CV.pdf",
-      href: "/CV.pdf",
-    },
+    // {
+    //   label: "Download CV.pdf",
+    //   href: "/CV.pdf",
+    // },
   ],
 };
 
