@@ -51,9 +51,9 @@ export function TagCloud() {
                 <AnimatePresence>
                   {tagsFilter.includes(tag) && (
                     <motion.p
-                      initial={{ x: -100 }}
+                      initial={{ x: -25 }}
                       animate={{ x: 0 }}
-                      exit={{ x: 100 }}
+                      exit={{ x: 25 }}
                     >
                       {"✓"}
                     </motion.p>
