@@ -60,9 +60,17 @@ export function ProjectCard(props: ProjectData) {
         />
 
         <div className="absolute inset-0 hidden bg-black opacity-75 lg:group-hover:flex"></div>
-        <div className="absolute inset-0 hidden flex-col items-center justify-center gap-5 py-4 lg:group-hover:flex ">
+        <motion.div
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{
+            opacity: 1,
+            scale: 0,
+            y: 100,
+          }}
+          className="absolute inset-0 hidden flex-col items-center justify-center gap-5 py-4 lg:group-hover:flex "
+        >
           {linksView}
-        </div>
+        </motion.div>
       </div>
       <div className="mt-4 flex gap-5 lg:hidden">{linksView}</div>
       <ProjectCardDescription
