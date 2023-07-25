@@ -2,7 +2,7 @@ import { type ProjectData } from "./projects-block";
 import { StyledLink } from "../../ui/styled-link";
 import Image from "next/image";
 import { ProjectCardDescription } from "./project-card-description";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function ProjectCard(props: ProjectData) {
   const { title, tags, links, image } = props;
@@ -34,15 +34,10 @@ export function ProjectCard(props: ProjectData) {
 
   return (
     <motion.div
+      whileInView={{ opacity: 1, scale: 1 }}
       initial={{
         opacity: 0.5,
         scale: 0.1,
-      }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        transitionDuration: "500ms",
-        animationTimingFunction: "linear",
       }}
       exit={{
         scale: 0.2,
