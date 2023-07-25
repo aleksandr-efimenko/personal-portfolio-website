@@ -6,31 +6,23 @@ import { motion } from "framer-motion";
 
 export function ProjectCard(props: ProjectData) {
   const { title, tags, links, image } = props;
-  const linksView = (
-    <>
-      {/* {links.projectInfo && (
-  <StyledLink
-    className="text-white"
-    href={`/projects${links.projectInfo}`}
-  >
-    Description
-  </StyledLink>
-)} */}
-      {links.livePreview && (
-        <StyledLink className="text-white" href={links.livePreview}>
-          Visit site
-        </StyledLink>
-      )}
-      {links.github && (
-        <StyledLink className="text-white" href={links.github}>
-          Github repo
-        </StyledLink>
-      )}
-      {!links.livePreview && !links.github && (
-        <p className="uppercase text-white">Private project</p>
-      )}
-    </>
-  );
+  // const linksView = (
+  //   <>
+  //     {links.livePreview && (
+  //       <StyledLink className="text-white" href={links.livePreview}>
+  //         Visit site
+  //       </StyledLink>
+  //     )}
+  //     {links.github && (
+  //       <StyledLink className="text-white" href={links.github}>
+  //         Github repo
+  //       </StyledLink>
+  //     )}
+  //     {!links.livePreview && !links.github && (
+  //       <p className="uppercase text-foreground">Private project</p>
+  //     )}
+  //   </>
+  // );
 
   return (
     <motion.div
@@ -58,7 +50,6 @@ export function ProjectCard(props: ProjectData) {
             objectPosition: "center",
           }}
         />
-
         <div className="absolute inset-0 hidden bg-black opacity-75 lg:group-hover:flex"></div>
         <motion.div
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -69,10 +60,36 @@ export function ProjectCard(props: ProjectData) {
           }}
           className="absolute inset-0 hidden flex-col items-center justify-center gap-5 py-4 lg:group-hover:flex "
         >
-          {linksView}
+          <>
+            {links.livePreview && (
+              <StyledLink className="text-white" href={links.livePreview}>
+                Visit site
+              </StyledLink>
+            )}
+            {links.github && (
+              <StyledLink className="text-white" href={links.github}>
+                Github repo
+              </StyledLink>
+            )}
+            {!links.livePreview && !links.github && (
+              <p className="uppercase text-foreground">Private project</p>
+            )}
+          </>
         </motion.div>
       </div>
-      <div className="mt-4 flex gap-5 lg:hidden">{linksView}</div>
+      <div className="mt-4 flex gap-5 lg:hidden">
+        <>
+          {links.livePreview && (
+            <StyledLink href={links.livePreview}>Visit site</StyledLink>
+          )}
+          {links.github && (
+            <StyledLink href={links.github}>Github repo</StyledLink>
+          )}
+          {!links.livePreview && !links.github && (
+            <p className="uppercase text-foreground">Private project</p>
+          )}
+        </>
+      </div>
       <ProjectCardDescription
         projectInfoLink={links.github}
         title={title}

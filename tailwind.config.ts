@@ -34,7 +34,7 @@ module.exports = {
           },
         ],
         "heading-ml": [
-          "2.3rem",
+          "2.1rem",
           {
             lineHeight: "2.5rem",
             fontWeight: "700",
