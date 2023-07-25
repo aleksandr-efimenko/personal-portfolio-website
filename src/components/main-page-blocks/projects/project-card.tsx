@@ -72,7 +72,7 @@ export function ProjectCard(props: ProjectData) {
               </StyledLink>
             )}
             {!links.livePreview && !links.github && (
-              <p className="uppercase text-foreground">Private project</p>
+              <p className="uppercase text-white">Private project</p>
             )}
           </>
         </motion.div>
