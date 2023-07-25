@@ -19,6 +19,7 @@ export const projectsData: ProjectData[] = [
       "Prisma ORM",
       "tRPC",
       "NextAuth.js",
+      "Zod",
     ],
     links: {
       projectInfo: "/kanban-desk",

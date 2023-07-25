@@ -19,8 +19,8 @@ export function ProjectCard(props: ProjectData) {
           }}
         />
 
-        <div className="absolute inset-0 hidden bg-black opacity-75  group-hover:flex"></div>
-        <div className="absolute inset-0 hidden flex-col items-center justify-center gap-5 py-4 group-hover:flex">
+        <div className="absolute inset-0 hidden bg-black opacity-75 lg:group-hover:flex"></div>
+        <div className="absolute inset-0 hidden flex-col items-center justify-center gap-5 py-4 lg:group-hover:flex ">
           {/* {links.projectInfo && (
             <StyledLink
               className="text-white"
@@ -43,6 +43,21 @@ export function ProjectCard(props: ProjectData) {
             <p className="uppercase text-white">Private project</p>
           )}
         </div>
+      </div>
+      <div className="mt-4 flex gap-5 lg:hidden">
+        {links.livePreview && (
+          <StyledLink className="text-white" href={links.livePreview}>
+            Visit site
+          </StyledLink>
+        )}
+        {links.github && (
+          <StyledLink className="text-white" href={links.github}>
+            Github repo
+          </StyledLink>
+        )}
+        {!links.livePreview && !links.github && (
+          <p className="uppercase text-white">Private project</p>
+        )}
       </div>
       <ProjectCardDescription
         projectInfoLink={links.github}

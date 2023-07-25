@@ -22,7 +22,7 @@ const pageData = {
 export function HeroDescription() {
   return (
     <>
-      <div className="mt-96 flex h-full flex-col gap-10 md:mt-0">
+      <div className="mt-96 flex h-full flex-col gap-5 md:mt-0 lg:gap-10">
         <div>
           <h1 className="responsive-heading-xl text-center md:text-left">
             {pageData.title}

@@ -6,13 +6,13 @@ import { HeroDescription } from "./hero-block-description";
 
 export function HeroBlock() {
   return (
-    <div className=" container relative flex h-[45rem] w-full items-center justify-between ">
+    <div className=" container relative flex h-[40rem] w-full items-center justify-between lg:h-[45rem] ">
       <Image
         src={patternRings as StaticImageData}
         alt="pattern circle"
         className=" absolute -left-32 top-28 z-10"
       />
-      <div className="flex w-full flex-col justify-center gap-10">
+      <div className="flex w-full flex-col justify-center gap-5 lg:gap-10">
         <HeroDescription />
       </div>
       <div
