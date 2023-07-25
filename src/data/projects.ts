@@ -5,6 +5,7 @@ import inspirationalImg from "~/project-screenshots/inspirational-p.png";
 import dropdomainImg from "~/project-screenshots/dropdomains.png";
 import memoryGameImg from "~/project-screenshots/memory-game.png";
 import marathonPrpImg from "~/project-screenshots/marathon-preparation-plan-2.png";
+import portfolioImg from "~/project-screenshots/portfolio-website.png";
 import { type ProjectData } from "@/components/main-page-blocks/projects/projects-block";
 
 export const projectsData: ProjectData[] = [
@@ -68,6 +69,25 @@ export const projectsData: ProjectData[] = [
       github: "",
     },
     image: dropdomainImg,
+  },
+  {
+    title: "Portfolio website",
+    tags: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer motion",
+      "React hook form",
+      "Zod",
+    ],
+    links: {
+      projectInfo: "/portfolio-website",
+      livePreview: "https://alexefimenko.com/",
+      github:
+        "https://github.com/aleksandr-efimenko/personal-portfolio-website",
+    },
+    image: portfolioImg,
   },
   {
     title: "Password generator",

@@ -146,6 +146,7 @@ const timelineElements = [
     icon: <Icons.education />,
     description:
       "The educational program was focused on modeling processes occurring in radio-electronic systems, maintenance of complex computerized radio-electronic systems, a detailed study of microprocessor technology, programmable logic integrated circuits and on-board computers.",
+    visible: true,
   },
 ];
 
@@ -174,6 +175,7 @@ export function TimelineBlock() {
       >
         {timelineElements.map((element, index) => (
           <VerticalTimelineElement
+            visible={element.visible ?? false}
             key={index}
             contentStyle={{
               background: "hsl(var(--muted))",
