@@ -10,6 +10,7 @@ import {
   tagsReducerInitialState,
 } from "@/reducers/tags-reducer";
 import figuresPattern from "~/pattern-figures.svg";
+import { AnimatePresence } from "framer-motion";
 
 export type ProjectData = {
   title: string;
@@ -63,9 +64,11 @@ export function ProjectsBlock() {
           className="grid w-full auto-cols-fr grid-cols-1 gap-6 gap-y-16
        md:grid-cols-2 lg:grid-cols-3"
         >
-          {projectsDataFiltered.map((projectData) => (
-            <ProjectCard key={projectData.title} {...projectData} />
-          ))}
+          <AnimatePresence>
+            {projectsDataFiltered.map((projectData) => (
+              <ProjectCard key={projectData.title} {...projectData} />
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </TagsFilterContext.Provider>

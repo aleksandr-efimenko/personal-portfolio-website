@@ -11,7 +11,6 @@ export function tagsReducer(
   state: typeof tagsReducerInitialState,
   action: TagsReducerActionType
 ) {
-  console.log(action);
   switch (action.type) {
     case "ADD_OR_REMOVE_TAG":
       if (state.tagsFilter.includes(action.payload)) {

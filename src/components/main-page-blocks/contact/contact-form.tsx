@@ -53,7 +53,6 @@ export function ContactForm() {
       senderEmail: data.email,
       message: data.message,
     });
-    console.log(data);
   }
 
   if (formSubmitMutation.isLoading) {

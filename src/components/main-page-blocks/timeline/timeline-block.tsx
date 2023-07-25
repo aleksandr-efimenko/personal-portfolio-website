@@ -8,6 +8,7 @@ import Image, { type StaticImageData } from "next/image";
 import wavesPattern from "~/pattern-waves.svg";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect } from "react";
+import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 
 const timelineElements = [
   {
@@ -26,7 +27,7 @@ const timelineElements = [
       "MongoDB",
       "Git",
       "Tailwind CSS",
-      "Framer Motion",
+      "Framer motion",
       "CSS Modules",
       "SurveyJS",
     ],
@@ -55,7 +56,7 @@ const timelineElements = [
     mainDuties: [],
     technologies: [
       "C#",
-      ".Net Core",
+      ".Net core",
       "Entity Framework",
       "MS SQL Server",
       "T-SQL",
@@ -86,7 +87,7 @@ const timelineElements = [
     technologies: [
       "1C Enterprise",
       "1C programming language",
-      "Microsoft SQL Server",
+      "MS SQL Server",
       "T-SQL",
     ],
   },
@@ -106,7 +107,7 @@ const timelineElements = [
       "1C Enterprise",
       "1C Document Management",
       "1C programming language",
-      "Microsoft SQL Server",
+      "MS SQL Server",
       "T-SQL",
       "VBA",
     ],
@@ -133,7 +134,7 @@ const timelineElements = [
       "Group Policy",
       "E1 Evfrat",
       "1C Enterprise",
-      "Microsoft SQL Server",
+      "MS SQL Server",
     ],
   },
   {
@@ -219,10 +220,10 @@ export function TimelineBlock() {
                 <ul className="flex flex-wrap gap-3">
                   {element.technologies.map((technology, index) => (
                     <li
-                      className="whitespace-nowrap rounded-full border border-foreground px-3"
+                      className="flex items-center gap-1 whitespace-nowrap rounded-full border border-foreground px-3"
                       key={index}
                     >
-                      {technology}
+                      {getTechnologyLogo(technology)} {technology}
                     </li>
                   ))}
                 </ul>
