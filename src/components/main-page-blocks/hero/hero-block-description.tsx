@@ -36,7 +36,7 @@ const animationVariants = {
 export function HeroDescription() {
   return (
     <>
-      <div className="mt-96 flex h-full flex-col gap-5 md:mt-0 lg:gap-10">
+      <div className="mt-96 flex h-full flex-col gap-5 pt-5 md:mt-0 lg:gap-10">
         <div>
           <motion.h1
             initial={animationVariants.initial}
