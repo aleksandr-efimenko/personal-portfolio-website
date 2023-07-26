@@ -46,7 +46,7 @@ export function ProjectsBlock() {
     <TagsFilterContext.Provider
       value={{ tagsFilter: tags.tagsFilter, dispatch }}
     >
-      <div className="relative flex flex-col gap-10">
+      <div className="relative flex flex-col gap-10" id="projects">
         <Image
           src={figuresPattern as StaticImageData}
           alt="abstract pattern dots"

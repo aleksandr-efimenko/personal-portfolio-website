@@ -38,6 +38,7 @@ export const projectsData: ProjectData[] = [
       "Tailwind CSS",
       "Framer motion",
       "Playwright",
+      "Jest",
     ],
     links: {
       projectInfo: "/space-tourism",

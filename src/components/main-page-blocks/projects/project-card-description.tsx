@@ -2,13 +2,20 @@ import Link from "next/link";
 import { useContext } from "react";
 import { TagsFilterContext } from "./projects-block";
 import { cn } from "@/utils/utils";
-import { tagColor } from "./tag-cloud";
 import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 
 export type ProjectCardDescriptionProps = {
   projectInfoLink: string;
   title: string;
   tags: string[];
+};
+
+const tagColorOnFilter = (tagsFilter: string[], tag: string) => {
+  if (tagsFilter.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())) {
+    return "border-light-green text-light-green";
+  } else {
+    return "text-foreground";
+  }
 };
 
 export function ProjectCardDescription({
@@ -45,7 +52,7 @@ export function ProjectCardDescription({
              text-body uppercase opacity-75
             transition-all duration-200 hover:text-light-green
             hover:dark:text-light-green`,
-                tagColor(tagsFilter, tag)
+                tagColorOnFilter(tagsFilter, tag)
               )}
             >
               {getTechnologyLogo(tag)} {tag}

@@ -24,6 +24,7 @@ export const tagsMap = new Map<string, JSX.Element>([
   ["Selenium", <Icons.selenium key="selenium" />],
   ["OpenAI API", <Icons.openapi key="openapi" />],
   ["Git", <Icons.git key="git" />],
+  ["Jest", <Icons.jest key="jest" />],
 ]);
 
 export function getTechnologyLogo(technology: string) {

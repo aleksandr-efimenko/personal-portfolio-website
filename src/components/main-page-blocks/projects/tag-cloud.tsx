@@ -6,11 +6,11 @@ import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 import { AnimatePresence, motion } from "framer-motion";
 
 // Defines the color of the tag based on whether it is selected or not
-export const tagColor = (tagsFilter: string[], tag: string) => {
+export const tagStyleOnFilter = (tagsFilter: string[], tag: string) => {
   if (tagsFilter.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())) {
-    return "border-light-green text-light-green";
+    return "border-light-green text-light-green pl-3 pr-7 bg-background";
   } else {
-    return "text-foreground";
+    return "text-foreground px-5";
   }
 };
 
@@ -39,21 +39,22 @@ export function TagCloud() {
                 }}
                 onClick={() => handleTagFilter(tag)}
                 className={cn(
-                  `flex items-center justify-center gap-2 overflow-hidden
-            whitespace-nowrap rounded-full border border-foreground px-3 text-body transition-all
-            duration-200 hover:border-light-green hover:bg-background
+                  `relative z-20 flex items-center justify-center gap-2 overflow-hidden
+            whitespace-nowrap rounded-full border border-foreground text-body transition-all
+            duration-200 hover:z-50 hover:border-light-green hover:bg-background
             hover:text-light-green hover:shadow-md hover:shadow-light-green md:text-xl
             `,
-                  tagColor(tagsFilter, tag)
+                  tagStyleOnFilter(tagsFilter, tag)
                 )}
               >
                 {getTechnologyLogo(tag)} {tag} ({count}){" "}
                 <AnimatePresence>
                   {tagsFilter.includes(tag) && (
                     <motion.p
-                      initial={{ x: -25 }}
-                      animate={{ x: 0 }}
-                      exit={{ x: 25 }}
+                      className="absolute right-2 z-20 bg-background"
+                      initial={{ y: -25 }}
+                      animate={{ y: 0 }}
+                      exit={{ y: 25 }}
                     >
                       {"✓"}
                     </motion.p>
