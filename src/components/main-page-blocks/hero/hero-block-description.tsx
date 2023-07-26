@@ -7,11 +7,15 @@ const pageData = {
   subtitleHighlight: "Alex Efimenko",
   subtitleEnd: ".",
   description:
-    "I'm a front-end developer passionate about building accessible web apps that users love.",
+    "I'm a full-stack developer passionate about building accessible web apps that users love.",
   links: [
     {
       label: "Contact me",
       href: "#contact",
+    },
+    {
+      label: "Book a call with me on Calendly",
+      href: "https://calendly.com/alexefimenko/introductory-call",
     },
     // {
     //   label: "Download CV.pdf",
@@ -73,7 +77,7 @@ export function HeroDescription() {
       </div>
       <motion.div
         initial={{
-          x: -500,
+          x: "-100vw",
         }}
         animate={{
           x: 0,

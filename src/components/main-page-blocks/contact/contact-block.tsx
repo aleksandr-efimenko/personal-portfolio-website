@@ -24,7 +24,7 @@ export function ContactBlock() {
         height={300}
       />
 
-      <div className="relative z-10 flex flex-1 flex-col gap-9">
+      <div className="relative z-10 flex flex-1 flex-col gap-4">
         <h2 className="responsive-heading-xl text-center md:text-left">
           {blockDescription.title}
         </h2>
@@ -36,6 +36,12 @@ export function ContactBlock() {
           className="text-center text-body text-foreground underline md:text-left"
         >
           {blockDescription.email}
+        </Link>
+        <Link
+          href={"https://calendly.com/alexefimenko/introductory-call"}
+          className="text-center text-body text-foreground underline md:text-left"
+        >
+          Book a call with me on Calendly
         </Link>
       </div>
       <div className="flex-1">
