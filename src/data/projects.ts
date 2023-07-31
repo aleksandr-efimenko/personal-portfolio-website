@@ -10,26 +10,6 @@ import { type ProjectData } from "@/components/main-page-blocks/projects/project
 
 export const projectsData: ProjectData[] = [
   {
-    title: "Kanban Desk",
-    tags: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "MongoDB",
-      "Prisma ORM",
-      "tRPC",
-      "NextAuth.js",
-      "Zod",
-    ],
-    links: {
-      projectInfo: "/kanban-desk",
-      livePreview: "https://kanban-desk.alexefimenko.com/",
-      github: "https://github.com/aleksandr-efimenko/kanban-task-management/",
-    },
-    image: kanbanImage,
-  },
-  {
     title: "Space tourism",
     tags: [
       "React",
@@ -111,7 +91,26 @@ export const projectsData: ProjectData[] = [
     },
     image: inspirationalImg,
   },
-
+  {
+    title: "Kanban Desk",
+    tags: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Prisma ORM",
+      "tRPC",
+      "NextAuth.js",
+      "Zod",
+    ],
+    links: {
+      projectInfo: "/kanban-desk",
+      livePreview: "https://kanban-desk.alexefimenko.com/",
+      github: "https://github.com/aleksandr-efimenko/kanban-task-management/",
+    },
+    image: kanbanImage,
+  },
   {
     title: "Memory game",
     tags: ["React", "JavaScript", "CSS Modules"],
