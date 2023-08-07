@@ -5,16 +5,19 @@ export type StyledLinkProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
-};
+  onNewTab?: boolean;
+} & React.HTMLAttributes<HTMLAnchorElement>;
 
 export function StyledLink({
   href,
   children,
   className,
+  onNewTab = false,
   ...props
 }: StyledLinkProps) {
   return (
     <Link
+      {...(onNewTab && { target: "_blank", rel: "noopener noreferrer" })}
       href={href}
       className="w-fit text-base tracking-widest text-foreground md:text-body lg:text-xl"
       {...props}

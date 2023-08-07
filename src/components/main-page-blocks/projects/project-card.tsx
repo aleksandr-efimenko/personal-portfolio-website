@@ -62,12 +62,20 @@ export function ProjectCard(props: ProjectData) {
         >
           <>
             {links.livePreview && (
-              <StyledLink className="text-white" href={links.livePreview}>
+              <StyledLink
+                className="text-white"
+                href={links.livePreview}
+                onNewTab={true}
+              >
                 Visit site
               </StyledLink>
             )}
             {links.github && (
-              <StyledLink className="text-white" href={links.github}>
+              <StyledLink
+                className="text-white"
+                href={links.github}
+                onNewTab={true}
+              >
                 Github repo
               </StyledLink>
             )}
@@ -80,10 +88,14 @@ export function ProjectCard(props: ProjectData) {
       <div className="mt-4 flex gap-5 lg:hidden">
         <>
           {links.livePreview && (
-            <StyledLink href={links.livePreview}>Visit site</StyledLink>
+            <StyledLink href={links.livePreview} onNewTab={true}>
+              Visit site
+            </StyledLink>
           )}
           {links.github && (
-            <StyledLink href={links.github}>Github repo</StyledLink>
+            <StyledLink href={links.github} onNewTab={true}>
+              Github repo
+            </StyledLink>
           )}
           {!links.livePreview && !links.github && (
             <p className="uppercase text-foreground">Private project</p>
