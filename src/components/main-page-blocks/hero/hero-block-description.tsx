@@ -17,10 +17,6 @@ const pageData = {
       label: "Book a call with me on Calendly",
       href: "https://calendly.com/alexefimenko/introductory-call",
     },
-    // {
-    //   label: "Download CV.pdf",
-    //   href: "/CV.pdf",
-    // },
   ],
 };
 
@@ -90,6 +86,12 @@ export function HeroDescription() {
             {link.label}
           </StyledLink>
         ))}
+
+        <p className="flex w-fit gap-5 text-base uppercase tracking-widest text-foreground md:text-body lg:text-xl">
+          {"Download CV:"}
+          <StyledLink href="/CV_Aleksadr_Efimenko.pdf">{".PDF"}</StyledLink>
+          <StyledLink href="/CV_Aleksadr_Efimenko.docx">{".DOCX"}</StyledLink>
+        </p>
       </motion.div>
     </>
   );
