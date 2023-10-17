@@ -89,8 +89,12 @@ export function HeroDescription() {
 
         <p className="flex w-fit gap-5 text-base uppercase tracking-widest text-foreground md:text-body lg:text-xl">
           {"Download CV:"}
-          <StyledLink href="/CV_Aleksadr_Efimenko.pdf">{".PDF"}</StyledLink>
-          <StyledLink href="/CV_Aleksadr_Efimenko.docx">{".DOCX"}</StyledLink>
+          <StyledLink data-cy={"cvPdf"} href="/CV_Aleksandr_Efimenko.pdf">
+            {".PDF"}
+          </StyledLink>
+          <StyledLink data-cy={"cvDocx"} href="/CV_Aleksandr_Efimenko.docx">
+            {".DOCX"}
+          </StyledLink>
         </p>
       </motion.div>
     </>
