@@ -48,6 +48,7 @@ export const projectsData: ProjectData[] = [
       "React hook form",
       "Docker",
       "SurveyJS",
+      "Recharts",
     ],
     links: {
       projectInfo: "/blute",
