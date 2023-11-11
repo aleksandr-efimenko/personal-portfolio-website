@@ -129,7 +129,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Inspirational page",
-    tags: ["React", "Redux", "TypeScript", "Firebase", "External API"],
+    tags: ["React", "Redux", "TypeScript", "Firebase"],
     links: {
       projectInfo: "/inspirational-page",
       livePreview: "https://inspirational-page.alexefimenko.com/",
@@ -167,14 +167,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "ChatGPT Marathon preparation plan ",
-    tags: [
-      "OpenAI API",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Full calendar",
-      "SurveyJS",
-    ],
+    tags: ["OpenAI API", "TypeScript", "React", "Next.js", "SurveyJS"],
     links: {
       projectInfo: "/marathon-preparation-plan-chatgpt",
       livePreview: "https://marathon-preparation-plan.alexefimenko.com/",
