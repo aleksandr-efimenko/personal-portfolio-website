@@ -13,7 +13,7 @@ import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 const timelineElements = [
   {
     title: "Freelance Full Stack Developer",
-    subtitle: "Fiverr, Batumi, Georgia",
+    subtitle: "Fiverr",
     date: "June 2023 – Present",
     icon: <Icons.work />,
     description: `Completed first order on Fiverr in June 2023.`,
@@ -34,7 +34,7 @@ const timelineElements = [
   },
   {
     title: "Studying Full Stack Web Development",
-    subtitle: "Batumi, Georgia",
+    subtitle: "",
     date: "November 2022 – May 2023 (7 months)",
     icon: <Icons.education />,
     description: `I successfully completed a series of frontend and backend courses from platforms such as Codecademy, Educative, and Frontend Masters. 
@@ -44,7 +44,7 @@ const timelineElements = [
   },
   {
     title: "C# Software Engineer",
-    subtitle: "Self-employed, Saint Petersburg, Russia",
+    subtitle: "Self-employed",
     date: "March 2016 – October 2022 (6 years 8 months)",
     icon: <Icons.work />,
     description: "",
@@ -72,7 +72,7 @@ const timelineElements = [
   {
     title: "IT Consultant",
     subtitle:
-      "Self-employed, Joint-Stock Company “Project Development Institute No.1”, Saint Petersburg, Russia",
+      "Self-employed, Joint-Stock Company “Project Development Institute No.1”",
     date: "September 2017 - August 2019 (2 years)",
     icon: <Icons.work />,
     description:
@@ -93,8 +93,7 @@ const timelineElements = [
   },
   {
     title: "Lead Engineer",
-    subtitle:
-      "Joint-Stock Company “Project Development Institute No.1”, Saint Petersburg, Russia",
+    subtitle: "Joint-Stock Company “Project Development Institute No.1”",
     date: "May 2015 - August 2017 (2 years 4 months)",
     icon: <Icons.work />,
     description: "",
@@ -115,7 +114,7 @@ const timelineElements = [
   {
     title: "Technical Support Engineer",
     subtitle:
-      "FGKU North-West territorial administration of the property relations, Saint Petersburg, Russia",
+      "FGKU North-West territorial administration of the property relations",
     date: "December 2010 - April 2015 (4 years 5 months)",
     icon: <Icons.work />,
     description: "",
@@ -140,8 +139,7 @@ const timelineElements = [
   {
     title:
       "Bachelor’s and Master’s degree in Aircraft Control Systems Engineering",
-    subtitle:
-      "Baltic State Technical University VOENMEH, Saint Petersburg, Russia",
+    subtitle: "Baltic State Technical University VOENMEH",
     date: "September 2008 - June 2014 (6 years)",
     icon: <Icons.education />,
     description:
