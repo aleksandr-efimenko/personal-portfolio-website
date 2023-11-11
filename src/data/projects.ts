@@ -6,9 +6,56 @@ import dropdomainImg from "~/project-screenshots/dropdomains.png";
 import memoryGameImg from "~/project-screenshots/memory-game.png";
 import marathonPrpImg from "~/project-screenshots/marathon-preparation-plan-2.png";
 import portfolioImg from "~/project-screenshots/portfolio-website.png";
+import cybercapImg from "~/project-screenshots/cybercap.png";
+import bluteImg from "~/project-screenshots/blute.png";
 import { type ProjectData } from "@/components/main-page-blocks/projects/projects-block";
 
 export const projectsData: ProjectData[] = [
+  {
+    title: "CyberCap AI Platform",
+    tags: [
+      "React",
+      "TypeScript",
+      "OpenAI API",
+      "Next.js",
+      "Tailwind CSS",
+      "NextAuth.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "React hook form",
+      "Docker",
+      "Cypress",
+      "GitHub Actions",
+      "S3",
+    ],
+    links: {
+      projectInfo: "/cybercap",
+      livePreview: "https://cybercap-app-seven.vercel.app/",
+      github: "https://github.com/cybercap-sandbox/cybercap-app",
+    },
+    image: cybercapImg,
+  },
+  {
+    title: "Blute - Clinical placement tracker",
+    tags: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "NextAuth.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "React hook form",
+      "Docker",
+      "SurveyJS",
+    ],
+    links: {
+      projectInfo: "/blute",
+      livePreview: "",
+      github: "",
+    },
+    image: bluteImg,
+  },
   {
     title: "Space tourism",
     tags: [
@@ -32,7 +79,6 @@ export const projectsData: ProjectData[] = [
     title: "Dropdomains",
     tags: [
       "C#",
-      "MVC",
       ".Net core",
       "Razor pages",
       "RabbitMQ",
@@ -60,7 +106,6 @@ export const projectsData: ProjectData[] = [
       "Tailwind CSS",
       "Framer motion",
       "React hook form",
-      "Zod",
     ],
     links: {
       projectInfo: "/portfolio-website",
@@ -100,9 +145,7 @@ export const projectsData: ProjectData[] = [
       "Tailwind CSS",
       "MongoDB",
       "Prisma ORM",
-      "tRPC",
       "NextAuth.js",
-      "Zod",
     ],
     links: {
       projectInfo: "/kanban-desk",
