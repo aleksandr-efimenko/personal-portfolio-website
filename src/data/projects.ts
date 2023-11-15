@@ -30,7 +30,7 @@ export const projectsData: ProjectData[] = [
     ],
     links: {
       projectInfo: "/cybercap",
-      livePreview: "https://cybercap-app-seven.vercel.app/",
+      livePreview: "",
       github: "https://github.com/cybercap-sandbox/cybercap-app",
     },
     image: cybercapImg,
@@ -52,7 +52,8 @@ export const projectsData: ProjectData[] = [
     ],
     links: {
       projectInfo: "/blute",
-      livePreview: "",
+      livePreview:
+        "https://www.linkedin.com/posts/aleksandr-efimenko_webdevelopment-mvp-rechartsjs-activity-7113505049103785984-Pumx?utm_source=share&utm_medium=member_desktop",
       github: "",
     },
     image: bluteImg,
