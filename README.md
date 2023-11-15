@@ -1,28 +1,38 @@
-# Create T3 App
+# Personal Portfolio Website
+![personal website](https://github.com/aleksandr-efimenko/personal-portfolio-website/assets/10911832/aaef27c0-6af4-4b24-a0fd-658c60a190cf)
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Welcome to my personal portfolio website built with Next.js, React, Tailwind CSS, shadcn/ui, Framer Motion, and React hook form with Zod. This website showcases my career and education journey, featuring a sleek design and interactive components.
 
-## What's next? How do I make an app with this?
+## Technologies Used
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Next.js**
+- **React**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Framer Motion**
+- **react-hook-form with zod**
+- **react-vertical-timeline-component**:
+- **Nodemailer**
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Features
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Responsive Design**: The website is designed to be fully responsive, ensuring a seamless experience across various devices.
+- **Interactive Animations**: Framer Motion is used to add interactive animations, providing a dynamic and engaging user experience.
+- **Timeline Display**: The career and education sections are presented using the react-vertical-timeline-component, allowing for a chronological display of milestones.
+- **Contact Form**: The contact form, powered by react-hook-form and zod, enables users to reach out, and messages are sent using Nodemailer and SendGrid.
 
-## Learn More
+## Getting Started
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To run this project locally, follow these steps:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Clone the repository.
+2. Install dependencies.
+3. Configure Nodemailer and SendGrid:
+   - Set up your Nodemailer and SendGrid accounts.
+   - Update the email credentials in the code to enable sending emails.
+4. Run the development server.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Acknowledgements
+The idea of the design for this website was inspired by [Frontend Mentor](https://www.frontendmentor.io/challenges/singlepage-developer-portfolio-bBVj2ZPi-x). 
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Thank you for exploring my portfolio! I hope you enjoy the journey through my career and educational experiences. If you have any questions or feedback, feel free to get in touch.
