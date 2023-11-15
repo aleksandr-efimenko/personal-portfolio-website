@@ -171,7 +171,7 @@ export const projectsData: ProjectData[] = [
     tags: ["OpenAI API", "TypeScript", "React", "Next.js", "SurveyJS"],
     links: {
       projectInfo: "/marathon-preparation-plan-chatgpt",
-      livePreview: "https://marathon-preparation-plan.alexefimenko.com/",
+      livePreview: "",
       github: "https://github.com/aleksandr-efimenko/running-plan-chatgpt",
     },
     image: marathonPrpImg,
