@@ -52,8 +52,7 @@ export const projectsData: ProjectData[] = [
     ],
     links: {
       projectInfo: "/blute",
-      livePreview:
-        "https://www.linkedin.com/posts/aleksandr-efimenko_webdevelopment-mvp-rechartsjs-activity-7113505049103785984-Pumx?utm_source=share&utm_medium=member_desktop",
+      livePreview: "",
       github: "",
     },
     image: bluteImg,
