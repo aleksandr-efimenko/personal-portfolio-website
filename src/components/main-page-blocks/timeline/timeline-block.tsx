@@ -12,11 +12,18 @@ import { getTechnologyLogo } from "@/data/tags-logo-matcher";
 
 const timelineElements = [
   {
-    title: "Freelance Full Stack Developer",
+    title: "Freelance Web Developer",
     subtitle: "Fiverr",
-    date: "June 2023 – Present",
+    date: "November 2022 – Present",
     icon: <Icons.work />,
-    description: `Completed first order on Fiverr in June 2023.`,
+
+    bulletPoints: [
+      `Achieved 100% client satisfaction.`,
+      `Developed Blute - a full-stack web application designed to enhance communication between clinic staff
+    and healthcare students during their clinical placement training. The application serves as a digital journal for students to document their experiences in real-time and
+    output visualization of key indicators on the dashboard.`,
+      `Developed a web app designed to empower students with knowledge of prompt engineering using the OpenAI platform.`,
+    ],
     technologies: [
       "JavaScript",
       "TypeScript",
@@ -31,16 +38,6 @@ const timelineElements = [
       "CSS Modules",
       "SurveyJS",
     ],
-  },
-  {
-    title: "Studying Full Stack Web Development",
-    subtitle: "",
-    date: "November 2022 – May 2023 (7 months)",
-    icon: <Icons.education />,
-    description: `I successfully completed a series of frontend and backend courses from platforms such as Codecademy, Educative, and Frontend Masters. 
-    Learned about the fundamentals of web development, including HTML, CSS, JavaScript, React, Redux, Next.js, Node.js, Express, MongoDB, and TypeScript.
-    I also completed a series of courses on algorithms and data structures from LeetCode.
-    To reinforce my understanding and gain practical experience, I undertook about 20 projects from Frontend Mentor, a platform that provides real-world design challenges for frontend developers. These projects allowed me to apply my knowledge, tackle complex problems, and develop responsive and visually appealing web applications.`,
   },
   {
     title: "C# Software Engineer",
@@ -128,6 +125,7 @@ const timelineElements = [
       "Installation, maintenance, troubleshooting and upgrading database server hardware and software",
     ],
     technologies: [
+      "Linux",
       "Windows Server",
       "Active Directory",
       "Group Policy",
