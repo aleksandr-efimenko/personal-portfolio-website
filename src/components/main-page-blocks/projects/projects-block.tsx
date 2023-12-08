@@ -58,7 +58,7 @@ export function ProjectsBlock() {
             <StyledButton onClick={resetTagsFilter}>Reset</StyledButton>
           )}
         </div>
-        <TagCloud />
+        {/* <TagCloud /> */}
 
         <div
           className="grid w-full auto-cols-fr grid-cols-1 gap-6 md:grid-cols-2 
