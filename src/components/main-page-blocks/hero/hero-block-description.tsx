@@ -89,10 +89,10 @@ export function HeroDescription() {
 
         <p className="flex w-fit gap-5 text-base uppercase tracking-widest text-foreground md:text-body lg:text-xl">
           {"Download CV:"}
-          <StyledLink data-cy={"cvPdf"} href="/CV_Aleksandr_Efimenko.pdf">
+          <StyledLink data-cy={"cvPdf"} href="/Resume_Alexander_Efimenko.pdf">
             {".PDF"}
           </StyledLink>
-          <StyledLink data-cy={"cvDocx"} href="/CV_Aleksandr_Efimenko.docx">
+          <StyledLink data-cy={"cvDocx"} href="/Resume_Alexander_Efimenko.docx">
             {".DOCX"}
           </StyledLink>
         </p>
