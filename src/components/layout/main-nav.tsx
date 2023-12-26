@@ -4,12 +4,12 @@ import { cn } from "@/utils/utils";
 
 const navItems = [
   {
-    name: "Projects",
-    href: "/projects",
+    name: "Home",
+    href: "/",
   },
   {
-    name: "About",
-    href: "/about",
+    name: "Blog",
+    href: "/blog",
   },
 ];
 
@@ -18,15 +18,15 @@ export function MainNav() {
 
   return (
     <nav
-      className=" flex flex-1 items-center justify-center gap-6
-      text-base font-medium"
+      className="flex flex-1 items-center justify-start gap-6 text-base
+      font-medium md:justify-center"
     >
       {navItems.map((item) => (
         <Link
           href={item.href}
           key={item.name}
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "text-lg transition-colors hover:text-foreground/80",
             pathname === item.href ? "text-foreground" : "text-foreground/60"
           )}
         >

@@ -8,11 +8,31 @@
 .markdown blockquote {
   @apply my-6;
 }
+.markdown p {
+  @apply text-xl;
+}
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply mb-4 mt-12 text-3xl leading-snug;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply mb-4 mt-8 text-2xl leading-snug;
+}
+
+.markdown ul,
+.markdown ol {
+  @apply pl-8;
+}
+
+.markdown li {
+  @apply mb-2 list-disc;
+}
+
+.markdown a {
+  @apply text-blue-600 underline;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-gray-400 pl-4 italic;
 }

@@ -6,9 +6,12 @@ type Props = {
 };
 
 const MoreStories = ({ posts }: Props) => {
+  if (!posts) {
+    return null;
+  }
   return (
     <section>
-      <h2 className="mb-8 text-5xl font-bold leading-tight tracking-tighter md:text-7xl">
+      <h2 className="mb-8 text-2xl font-bold leading-tight tracking-tighter md:text-3xl">
         More Stories
       </h2>
       <div className="mb-32 grid grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32">

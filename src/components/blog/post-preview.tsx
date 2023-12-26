@@ -16,7 +16,7 @@ const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
-      <h3 className="mb-3 text-3xl leading-snug">
+      <h3 className="mb-3 text-2xl leading-snug">
         <Link
           as={`/blog/${slug}`}
           href="/blog/[slug]"
@@ -25,7 +25,7 @@ const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
           {title}
         </Link>
       </h3>
-      <div className="mb-4 text-lg">
+      <div className="mb-4 text-lg opacity-40">
         <DateFormatter dateString={date} />
       </div>
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>

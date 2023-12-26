@@ -9,6 +9,7 @@ import PostTitle from "@/components/blog/post-title";
 import Head from "next/head";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
+import MoreStories from "@/components/blog/more-stories";
 
 type Props = {
   post: PostType;
@@ -18,10 +19,11 @@ type Props = {
 
 export default function Post({ post, morePosts, preview }: Props) {
   const router = useRouter();
-  const title = `${post.title} | `;
+  const title = `${post.title} | Alex Efimenko personal blog`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <Container>
       <Header />
@@ -42,6 +44,12 @@ export default function Post({ post, morePosts, preview }: Props) {
             <PostBody content={post.content} />
           </article>
         </>
+      )}
+      {morePosts.length > 0 && (
+        <div>
+          <hr className="my-10 border-gray-200" />
+          <MoreStories posts={morePosts} />
+        </div>
       )}
     </Container>
   );
@@ -64,8 +72,18 @@ export async function getStaticProps({ params }: Params) {
   ]);
   const content = await markdownToHtml(post.content || "");
 
+  const allPosts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "coverImage",
+    "excerpt",
+  ]);
+  const morePosts = allPosts.filter((post) => post.slug !== params.slug);
+
   return {
     props: {
+      morePosts,
       post: {
         ...post,
         content,
