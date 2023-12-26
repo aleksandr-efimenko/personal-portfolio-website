@@ -23,7 +23,7 @@ Previously I used [Lodash's debounce function](https://lodash.com/docs/4.17.15#d
 
 Implementing a debounce function is not that hard. Two key concepts are used: closures and setTimeout.
 
-<iframe src="https://codesandbox.io/embed/rpd46m?view=editor&module=%2Fsrc%2Findex.ts&hidenavigation=1"
+<iframe src="https://codesandbox.io/embed/rpd46m?view=Editor+%2B+Preview&module=%2Fsrc%2Findex.ts&hidenavigation=1&expanddevtools=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Debounce function"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
