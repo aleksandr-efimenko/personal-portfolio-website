@@ -17,7 +17,7 @@ type Props = {
   preview?: boolean;
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, morePosts }: Props) {
   const router = useRouter();
   const title = `${post.title} | Alex Efimenko personal blog`;
   if (!router.isFallback && !post?.slug) {
@@ -92,6 +92,7 @@ export async function getStaticProps({ params }: Params) {
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
 

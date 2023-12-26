@@ -35,6 +35,7 @@ export default function Index({ allPosts }: Props) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
     "title",

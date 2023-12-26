@@ -30,6 +30,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
 
     if (typeof data[field] !== "undefined") {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       items[field] = data[field];
     }
   });
@@ -42,6 +43,8 @@ export function getAllPosts(fields: string[] = []) {
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .sort((post1, post2) =>
+      (post1.date as string) > (post2.date as string) ? -1 : 1
+    );
   return posts;
 }

@@ -4,7 +4,6 @@ import passwordGenImage from "~/project-screenshots/password-generator.png";
 import inspirationalImg from "~/project-screenshots/inspirational-p.png";
 import dropdomainImg from "~/project-screenshots/dropdomains.png";
 import memoryGameImg from "~/project-screenshots/memory-game.png";
-import marathonPrpImg from "~/project-screenshots/marathon-preparation-plan-2.png";
 import portfolioImg from "~/project-screenshots/portfolio-website.png";
 import cybercapImg from "~/project-screenshots/cybercap.png";
 import bluteImg from "~/project-screenshots/blute.png";
