@@ -8,7 +8,7 @@ describe("main page", () => {
   });
 
   it("contains the correct title", () => {
-    cy.title().should("contain", "Aleksandr Efimenko");
+    cy.title().should("contain", "Alex Efimenko");
   });
 
   it("displays the header", () => {

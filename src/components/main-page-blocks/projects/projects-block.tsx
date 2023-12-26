@@ -3,7 +3,7 @@ import { ProjectCard } from "./project-card";
 import { projectsData } from "@/data/projects";
 import { createContext, useReducer } from "react";
 import { StyledButton } from "../../ui/styled-button";
-import { TagCloud } from "./tag-cloud";
+
 import {
   type TagsReducerActionType,
   tagsReducer,

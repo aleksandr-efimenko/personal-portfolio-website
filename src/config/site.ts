@@ -1,6 +1,6 @@
 export const siteConfig = {
   logo: "AlexEfimenko",
-  title: "Aleksandr Efimenko personal site",
+  title: "Alex Efimenko personal site",
   url: "https://alexefimenko.com",
   links: {
     github: "https://github.com/aleksandr-efimenko",

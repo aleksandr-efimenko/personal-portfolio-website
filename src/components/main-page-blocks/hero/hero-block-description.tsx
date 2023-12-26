@@ -7,7 +7,7 @@ const pageData = {
   subtitleHighlight: "Alex Efimenko",
   subtitleEnd: ".",
   description:
-    "I'm a Web Developer passionate about building accessible web apps that users love.",
+    "I'm a Full-stack Developer passionate about building accessible web apps that users love.",
   links: [
     {
       label: "Contact me",

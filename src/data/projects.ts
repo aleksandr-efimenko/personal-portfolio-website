@@ -99,6 +99,24 @@ export const projectsData: ProjectData[] = [
     image: dropdomainImg,
   },
   {
+    title: "Kanban Desk",
+    tags: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Prisma ORM",
+      "NextAuth.js",
+    ],
+    links: {
+      projectInfo: "/kanban-desk",
+      livePreview: "https://kanban-desk.alexefimenko.com/",
+      github: "https://github.com/aleksandr-efimenko/kanban-task-management/",
+    },
+    image: kanbanImage,
+  },
+  {
     title: "Portfolio website",
     tags: [
       "React",
@@ -137,24 +155,7 @@ export const projectsData: ProjectData[] = [
     },
     image: inspirationalImg,
   },
-  {
-    title: "Kanban Desk",
-    tags: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "MongoDB",
-      "Prisma ORM",
-      "NextAuth.js",
-    ],
-    links: {
-      projectInfo: "/kanban-desk",
-      livePreview: "https://kanban-desk.alexefimenko.com/",
-      github: "https://github.com/aleksandr-efimenko/kanban-task-management/",
-    },
-    image: kanbanImage,
-  },
+
   {
     title: "Memory game",
     tags: ["React", "JavaScript", "CSS Modules"],
@@ -164,16 +165,6 @@ export const projectsData: ProjectData[] = [
       github: "https://github.com/aleksandr-efimenko/memory_game_react",
     },
     image: memoryGameImg,
-  },
-  {
-    title: "ChatGPT Marathon preparation plan ",
-    tags: ["OpenAI API", "TypeScript", "React", "Next.js", "SurveyJS"],
-    links: {
-      projectInfo: "/marathon-preparation-plan-chatgpt",
-      livePreview: "",
-      github: "https://github.com/aleksandr-efimenko/running-plan-chatgpt",
-    },
-    image: marathonPrpImg,
   },
 ];
 
