@@ -8,9 +8,9 @@ import javascript from "highlight.js/lib/languages/javascript";
 export default async function markdownToHtml(markdownString: string) {
   const result = await unified()
     .use(markdown)
-    .use(remark2rehype)
+    .use(remark2rehype, { allowDangerousHtml: true })
     .use(rehypeHighlight, { languages: { javascript } })
-    .use(html)
+    .use(html, { allowDangerousHtml: true })
     .process(markdownString);
   return result.toString();
 }
