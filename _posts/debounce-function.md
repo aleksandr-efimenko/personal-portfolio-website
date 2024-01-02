@@ -32,15 +32,11 @@ Check how debounce works:
 
 Implementing a debounce function is not that hard. Two key concepts are used: closures and setTimeout.
 
-```javascript
-export function debounce(callback: () => void, interval: number) {
-  let timeout: number | null = null;
-  return function (...args: unknown[]) {
-    if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => callback(...args), interval);
-  };
-}
-```
+<iframe
+  src="https://carbon.now.sh/embed/JBpzaQWnEI5rTOYs5jj3"
+  style="width: 674px; height: 280px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 Closure is a function that has access to the parent scope, even after the parent function has closed. In our case, the parent function is the debounce function and the child function is the function that will be called after the wait time has passed. The child function will have access to the parent function's scope, even after the parent function has closed.
 
