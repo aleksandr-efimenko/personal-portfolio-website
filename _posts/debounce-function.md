@@ -14,9 +14,9 @@ A debounce function is used to limit the rate at which a function can fire.
 
 Previously I used [Lodash's debounce function](https://lodash.com/docs/4.17.15#debounce), so I didn't know how it worked and decided to implement it myself. I thought it would be a good exercise and maybe help someone else come up with a better understanding of how it works.
 
-Check how debounce works:
+Check how the debounce function works:
 
-<iframe src="https://codesandbox.io/embed/vnnplw?view=Preview"
+<iframe src="https://codesandbox.io/embed/vnnplw?view=preview&module=%2Fsrc%2Findex.tsx&hidenavigation=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Debounce function"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -28,6 +28,7 @@ Check how debounce works:
 - Doing an API call on every keypress in an input. If the user types fast, we will fire a lot of API calls, which is not good. We can use debounce to limit the rate at which the API calls are made.
 
 - A button click handled by a function that will only run once in a given time period such as the Save button. If the user clicks the button multiple times, we will only run the function once.
+
 - When a user resizes a window or scrolls a page, which can trigger dozens or hundreds of calls in a small period of time.
 
 Implementing a debounce function is not that hard. Two key concepts are used: closures and setTimeout.

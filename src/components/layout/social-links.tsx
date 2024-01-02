@@ -23,6 +23,7 @@ export function SocialLinks() {
           href={item.href}
           key={item.name}
           className="transition-colors hover:text-light-green"
+          aria-label={"Link to " + item.name}
         >
           {item.icon}
         </Link>
