@@ -5,6 +5,7 @@ import Intro from "@/components/blog/intro";
 import { getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import type Post from "../../interfaces/post";
+import "@/styles/highlight-js/atom-one-dark.module.css";
 
 type Props = {
   allPosts: Post[];

@@ -44,7 +44,10 @@ export function getAllPosts(fields: string[] = []) {
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
     .sort((post1, post2) =>
-      (post1.date as string) > (post2.date as string) ? -1 : 1
+      new Date(post1.date as string).getTime() >
+      new Date(post2.date as string).getTime()
+        ? -1
+        : 1
     );
   return posts;
 }

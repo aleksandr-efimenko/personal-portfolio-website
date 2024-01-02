@@ -1,9 +1,16 @@
-import { remark } from "remark";
-import html from "remark-html";
+import { unified } from "unified";
+import markdown from "remark-parse";
+import remark2rehype from "remark-rehype";
+import html from "rehype-stringify";
+import rehypeHighlight from "rehype-highlight";
+import javascript from "highlight.js/lib/languages/javascript";
 
-export default async function markdownToHtml(markdown: string) {
-  const result = await remark()
-    .use(html, { sanitize: false })
-    .process(markdown);
+export default async function markdownToHtml(markdownString: string) {
+  const result = await unified()
+    .use(markdown)
+    .use(remark2rehype)
+    .use(rehypeHighlight, { languages: { javascript } })
+    .use(html)
+    .process(markdownString);
   return result.toString();
 }
