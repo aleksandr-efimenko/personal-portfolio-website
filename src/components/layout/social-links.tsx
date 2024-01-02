@@ -2,16 +2,22 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
 
+const iconSize = "h-7 w-7 md:h-8 md:w-9";
 export const socialLinks = [
+  {
+    name: "DEV",
+    href: siteConfig.links.devto,
+    icon: <Icons.devto className={iconSize} />,
+  },
   {
     name: "GitHub",
     href: siteConfig.links.github,
-    icon: <Icons.gitHub className="h-5 w-5 md:h-6 md:w-6" />,
+    icon: <Icons.gitHub className={iconSize} />,
   },
   {
     name: "LinkedIn",
     href: siteConfig.links.linkedin,
-    icon: <Icons.linkedIn className="h-5 w-5 md:h-6 md:w-6" />,
+    icon: <Icons.linkedIn className={iconSize} />,
   },
 ];
 
