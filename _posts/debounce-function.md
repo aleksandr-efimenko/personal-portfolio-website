@@ -16,7 +16,7 @@ Previously I used [Lodash's debounce function](https://lodash.com/docs/4.17.15#d
 
 Check how debounce works:
 
-<iframe src="https://codesandbox.io/embed/vnnplw?view=Editor+%2B+Preview&module=%2Fsrc%2Fstyles.css"
+<iframe src="https://codesandbox.io/embed/vnnplw?view=Preview"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Debounce function"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -31,12 +31,6 @@ Check how debounce works:
 - When a user resizes a window or scrolls a page, which can trigger dozens or hundreds of calls in a small period of time.
 
 Implementing a debounce function is not that hard. Two key concepts are used: closures and setTimeout.
-
-<iframe
-  src="https://carbon.now.sh/embed/JBpzaQWnEI5rTOYs5jj3"
-  style="width: 674px; height: 280px; border:0; transform: scale(1); overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
 
 Closure is a function that has access to the parent scope, even after the parent function has closed. In our case, the parent function is the debounce function and the child function is the function that will be called after the wait time has passed. The child function will have access to the parent function's scope, even after the parent function has closed.
 
