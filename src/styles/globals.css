@@ -120,3 +120,77 @@
   }
 }
 /* <- copied from https://codepen.io/alvarotrigo/pen/PoKMyNO  */
+
+/* Highlight.js */
+pre:has(.hljs) {
+  @apply overflow-auto rounded-md bg-[#fafafa] p-5 text-[#383a42] dark:bg-[#282c34] dark:text-[#abb2bf];
+}
+
+.hljs-comment,
+.hljs-quote {
+  @apply italic  text-[#a0a1a7] dark:text-[#5c6370];
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  @apply text-[#794887] dark:text-[#c678dd];
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  @apply text-[#e45649] dark:text-[#e06c75];
+}
+
+.hljs-literal {
+  @apply text-[#0184bb] dark:text-[#56b6c2];
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  @apply text-[#50a14f] dark:text-[#98c379];
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  @apply text-[#c18401] dark:text-[#d19a66];
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  @apply text-[#4078f2] dark:text-[#61aeee];
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  @apply text-[#986801] dark:text-[#e6c07b];
+}
+
+.hljs-emphasis {
+  @apply italic;
+}
+
+.hljs-strong {
+  @apply font-bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}

@@ -10,7 +10,6 @@ import Head from "next/head";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import MoreStories from "@/components/blog/more-stories";
-import "@/styles/highlight-js/atom-one-dark.module.css";
 
 type Props = {
   post: PostType;
