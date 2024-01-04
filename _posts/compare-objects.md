@@ -207,6 +207,10 @@ Then I wrote a simple function to compare two objects using each of the methods.
 The results of this method are not very accurate and may vary from machine to machine, but it is good enough for our purpose.
 
 ```javascript
+let startFastDeepEqual = performance.now();
+equal(obj1, obj2); // true
+let timeTakenFastDeepEqual = performance.now() - startFastDeepEqual;
+
 let startLodash = performance.now();
 isEqual(obj1, obj2); // true
 let timeTakenLodash = performance.now() - startLodash;
@@ -223,6 +227,7 @@ let startCustom = performance.now();
 areDeeplyEqual(obj1, obj2); // true
 let timeTakenCustom = performance.now() - startCustom;
 
+console.log(`FastDeepEqual: ${timeTakenFastDeepEqual}`);
 console.log(`Lodash: ${timeTakenLodash}`);
 console.log(`Node Assert: ${timeTakenNodeAssert}`);
 console.log(`JSON.stringify: ${timeTakenJSONStringify}`);
