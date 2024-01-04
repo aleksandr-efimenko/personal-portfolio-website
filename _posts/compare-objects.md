@@ -1,6 +1,6 @@
 ---
 title: "4 ways to compare objects in Javascript"
-excerpt: "In this article, we will implement a custom object and array comparison function. We will use recursion to implement the comparison function."
+excerpt: "In this article, I will implement a custom object and array comparison function. I will use recursion to implement the comparison function. I will also compare the performance of different methods of object comparison."
 coverImage: "/blog/compare-objects/cover.png"
 date: "2023-12-29"
 ogImage:
@@ -15,38 +15,63 @@ The problem with the regular equality operator is that it only checks references
 
 ### There are several common ways to compare objects and arrays in Javascript:
 
-#### 1. [Lodash's isEqual](https://lodash.com/docs/4.17.15#isEqual)
+#### 1. [Fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal) and other similar libraries
 
-This is the most popular way to compare objects and arrays in Javascript. It is a part of the Lodash library. It is a very well tested and optimized function. It is also very easy to use.
+This library provides a function called equal() which can be used to compare objects and arrays. It is a very popular library, it has 20+ million weekly downloads on npm.
 
-> This method supports comparing arrays, array buffers, booleans, date objects, error objects, maps, numbers, Object objects, regexes, sets, strings, symbols, and typed arrays. Object objects are compared by their own, not inherited, enumerable properties. Functions and DOM nodes are compared by strict equality, i.e. ===
+The main advantage of this library is that it is very fast. It is 10-100 times faster than other libraries like Lodash's isEqual() method according to the author benchmark tests:
 
-To use it, you need to install the Lodash library using npm or yarn.
+| Library                | Ops/sec |
+| ---------------------- | ------- |
+| fast-deep-equal        | 261,950 |
+| fast-equals            | 230,957 |
+| fast-deep-equal/es6    | 212,991 |
+| nano-equal             | 187,995 |
+| shallow-equal-fuzzy    | 138,302 |
+| underscore.isEqual     | 74,423  |
+| util.isDeepStrictEqual | 46,440  |
+| lodash.isEqual         | 36,637  |
+| deep-eql               | 35,312  |
+| ramda.equals           | 12,054  |
+| deep-equal             | 2,310   |
+| assert.deepStrictEqual | 456     |
+
+To use it, you need to install the library using npm or yarn.
 
 ```bash
-npm install lodash
+npm install fast-deep-equal
 ```
 
 Then you can import it in your code and use it.
 
 ```javascript
-import isEqual from "lodash/isEqual";
+import equal from "fast-deep-equal";
 
 const obj1 = { a: 1, b: 2 };
 const obj2 = { a: 1, b: 2 };
 
-isEqual(obj1, obj2); // true
+equal(obj1, obj2); // true
 ```
+
+Other libraries:
+
+- [Lodash's isEqual](https://lodash.com/docs/4.17.15#isEqual)
+- [Ramda](https://ramdajs.com/docs/#equals)
+- [Underscore](https://underscorejs.org/#isEqual)
+- [Immutable.js](<https://immutable-js.com/docs/v3.8.2/is()>)
+- [Fast-equals](https://github.com/planttheidea/fast-equals)
 
 ---
 
-#### 2. [Node.js assert.deepEqual() method](https://nodejs.org/api/assert.html#assert_assert_deepstrictequal_actual_expected_message)
+#### 2. [Node.js assert.deepEqual() method](https://nodejs.org/api/assert.html#assert_assert_deepstrictequal_actual_expected_message) and [Node.js util.isDeepStrictEqual() method](https://nodejs.org/api/util.html#util_util_isdeepstrictequal_val1_val2)
 
 This is a part of the Node.js assert module.
 
 The main downside of this method is that it can only be used in Node.js but not in the browser.
 
 Another issue is this function throws an error if the objects are not equal. This is not ideal if you want to use it in a conditional statement. You can use try/catch to handle the error, but it is not ideal.
+
+util.isDeepStrictEqual() is similar to assert.deepEqual() but it does not throw an error if the objects are not equal. It returns true or false depending on whether the objects are equal or not. This is more suitable for conditional statements.
 
 ```javascript
 const assert = require("assert").strict;
@@ -206,14 +231,14 @@ console.log(`Custom: ${timeTakenCustom}`);
 
 I ran this code with different sizes of objects and got the following results:
 
-| Size of object | Lodash   | Node Assert | JSON.stringify | Custom    |
-| -------------- | -------- | ----------- | -------------- | --------- |
-| 100            | 0.4316   | 0.0167      | 0.0202         | 0.2763    |
-| 1000           | 0.5901   | 0.3884      | 0.1584         | 0.5741    |
-| 10000          | 3.0968   | 3.0775      | 2.7993         | 7.3304    |
-| 100000         | 52.8975  | 37.6808     | 33.9532        | 56.0962   |
-| 500000         | 200.1934 | 219.5169    | 311.2552       | 448.4530  |
-| 1000000        | 455.5247 | 531.1270    | 736.3083       | 1085.5547 |
+| Size of object | FastDeepEqual | Lodash   | Node Assert | JSON.stringify | Custom    |
+| -------------- | ------------- | -------- | ----------- | -------------- | --------- |
+| 100            | 0.0731        | 0.4316   | 0.0167      | 0.0202         | 0.2763    |
+| 1000           | 0.2522        | 0.5901   | 0.3884      | 0.1584         | 0.5741    |
+| 10000          | 2.3789        | 3.0968   | 3.0775      | 2.7993         | 7.3304    |
+| 100000         | 30.8043       | 52.8975  | 37.6808     | 33.9532        | 56.0962   |
+| 500000         | 173.8129      | 200.1934 | 219.5169    | 311.2552       | 448.4530  |
+| 1000000        | 398.3462      | 455.5247 | 531.1270    | 736.3083       | 1085.5547 |
 
 Graphical representation of the results:
 ![Graphical representation of performance comparison of different methods of object comparison](/blog/compare-objects/performance-object-comparison.png)

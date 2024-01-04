@@ -46,7 +46,7 @@
 }
 
 .markdown table {
-  @apply my-8 w-full table-auto border-collapse border border-gray-400 text-left;
+  @apply my-8 w-full table-auto border-collapse overflow-auto border border-gray-400 text-left;
 }
 
 .markdown table th {
