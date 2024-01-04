@@ -4,6 +4,7 @@ import remark2rehype from "remark-rehype";
 import html from "rehype-stringify";
 import rehypeHighlight from "rehype-highlight";
 import javascript from "highlight.js/lib/languages/javascript";
+import remarkGfm from "remark-gfm";
 
 export default async function markdownToHtml(markdownString: string) {
   const result = await unified()
@@ -11,6 +12,7 @@ export default async function markdownToHtml(markdownString: string) {
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(rehypeHighlight, { languages: { javascript } })
     .use(html, { allowDangerousHtml: true })
+    .use(remarkGfm)
     .process(markdownString);
   return result.toString();
 }
