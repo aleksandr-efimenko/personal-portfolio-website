@@ -1,5 +1,5 @@
 ---
-title: "Debounce function"
+title: "Let’s implement a Debounce function in Javascript"
 excerpt: "Debounce function is used to limit the rate at which a function can fire. In this article, we will implement a custom debounce function. We will use closures and setTimeout to implement the debounce function.
 "
 coverImage: "/blog/debounce-function/cover.jpg"
