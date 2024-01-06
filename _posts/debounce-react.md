@@ -1,5 +1,5 @@
 ---
-title: "Implementing Debounce in React for efficient delayed search queries"
+title: "Implementing Debounce in React for Efficient Delayed Search Queries"
 excerpt: "In this article, we will look at how to implement debounce in React for efficient delayed search queries. We will look at how to implement debounce in React using the useRef hook."
 coverImage: "/blog/debounce-react/cover.png"
 date: "2024-04-01"

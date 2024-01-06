@@ -7,6 +7,23 @@ ogImage:
   url: "/blog/nextjs-postgres-s3-locally/cover.png"
 ---
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Table of Contents](#table-of-contents)
+- [Create a Next.js application](#create-a-nextjs-application)
+- [Configure Next.js to work with Docker](#configure-nextjs-to-work-with-docker)
+- [Add .dockerignore file](#add-dockerignore-file)
+- [Configure Prisma to work with Docker](#configure-prisma-to-work-with-docker)
+- [Create a Dockerfile for the Next.js application](#create-a-dockerfile-for-the-nextjs-application)
+- [Create a docker-compose.yml file](#create-a-docker-composeyml-file)
+- [Run the application](#run-the-application)
+- [Conclusion](#conclusion)
+- [References and further reading:](#references-and-further-reading)
+
+## Introduction
+
 As a developer working on a full-stack application, you need to have a local development environment that is as close as possible to the production environment. It will allow you to test and debug your application locally before deploying it to production.
 
 Almost every full-stack application needs a database and a file storage so let's build a basic full-stack application that can save and retrieve data from a database and upload and download files from a file storage.
@@ -19,13 +36,12 @@ Once you have a docker-compose file, you and your team can use it to set up the 
 
 In this article, we will look at how to build a local development environment for a full-stack Next.js application with Prisma ORM connected to PostgreSQL as a database and Minio S3 as a file storage using Docker-Compose.
 
-You can find the full source code for this tutorial on [GitHub]()
+You can find the full source code for this tutorial on [GitHub](https://github.com/aleksandr-efimenko/local-nextjs-postgres-s3)
 
 When you are ready to deploy your application to production, you can use any type of database:
 
 - Supabase (I love this one)
 - Vercel Postgres
-- Upstash
 - AWS RDS
 - Google Cloud SQL
 - Azure Database for PostgreSQL
@@ -38,9 +54,9 @@ The same goes for the file storage, you need one that is compatible with the S3 
 
 - AWS S3
 - Google Cloud Storage (I tested it, it works)
-- DigitalOcean Spaces
 - Wasabi (One of the cheapest options)
 - Backblaze B2
+- DigitalOcean Spaces
 - ...
 
 ## Prerequisites
@@ -49,7 +65,7 @@ To follow this tutorial, you need to have Docker and Docker-Compose installed on
 
 When I firstly faced the task of setting up a local development environment for Next.js, Prisma and PostgreSQL, I found the [T3 tutorial](https://create.t3.gg/en/deployment/docker) but it didn't work for me. It might be they updated the tutorial since then. I used it as a starting point for this tutorial.
 
-## Create a Next.js application
+### 1. Create a Next.js application
 
 Let's start by creating a Next.js application. We will use the T3 stack (TypeScript, TailwindCSS, and Prisma ORM) for this tutorial to skip installing and configuring all the dependencies which is out of the scope of this article. You can find more information about the [T3 stack](https://create.t3.gg/).
 
@@ -103,7 +119,7 @@ After you run the command, you will be asked several questions:
 
 ```
 
-### 1. Configure Next.js to work with Docker
+### 2. Configure Next.js to work with Docker
 
 According to the [Next.js documentation](https://nextjs.org/docs/pages/api-reference/next-config-js/output)
 
@@ -120,7 +136,7 @@ const config = {
 };
 ```
 
-### 2. Add .dockerignore file
+### 3. Add .dockerignore file
 
 I prefer having a separate folder for the docker files, so I created a folder called `compose` in the root of the project. We need to add a `.dockerignore` file to this folder to exclude unnecessary files from the Docker image. The `.dockerignore` file should look like this:
 
@@ -136,12 +152,14 @@ npm-debug.log
 README.md
 ```
 
-### 3. Configure Prisma to work with Docker
+### 4. Configure Prisma to work with Docker
 
 In the `prisma/schema.prisma` file, we need to
 
-- Add binaryTargets to the generator block. It will allow us to use the Prisma CLI inside the Docker container. You need to your binaryTargets specific to your OS and architecture. For example, for M1 Mac, I use "linux-musl-arm64-openssl-3.0.x". To support other OS and architectures, you need to add them to the binaryTargets array. More about binaryTargets [here](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#binarytargets-options).
 - change the provider from `sqlite` to `postgresql`:
+- Add binaryTargets to the generator block. It will allow us to use the Prisma CLI inside the Docker container. You need to your binaryTargets specific to your OS and architecture. For example, for M1 Mac, I use "linux-musl-arm64-openssl-3.0.x". To support other OS and architectures, you need to add them to the binaryTargets array. More about binaryTargets [here](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#binarytargets-options).
+
+I want to use the same `schema.prisma` file for local development on machines with different OS and architectures and also for CI/CD pipelines on GitHub Actions. So in my case, the `prisma/schema.prisma` file looks like this:
 
 ```prisma
 generator client {
@@ -156,7 +174,7 @@ datasource db {
 
 ```
 
-### 4. Create a Dockerfile for the Next.js application
+### 5. Create a Dockerfile for the Next.js application
 
 Inside the `compose` folder, create a file called `web.Dockerfile` with the following content:
 
@@ -164,14 +182,11 @@ Inside the `compose` folder, create a file called `web.Dockerfile` with the foll
 FROM node:18-alpine
 
 RUN mkdir app
-
-COPY ../prisma ./app
-COPY ../package.json ./app
+COPY ../prisma ../package.json ./app
 COPY ../package-lock.json ./app
 WORKDIR /app
 
 RUN npm ci
-RUN npm install next -g
 
 CMD ["npm", "run", "dev"]
 ```
@@ -180,12 +195,112 @@ We will use the `node:18-alpine` image as a base image. It is a lightweight imag
 
 Using 'clean install' (`npm ci`) instead of 'install' (`npm i`) is a good practice for Docker images. It will ensure that the dependencies are installed from the `package-lock.json` file and not from the node_modules cache. This is faster than 'install', which is especially important for CI/CD pipelines where you want to keep the build time as short as possible.
 
-### 5. Create a docker-compose.yml file
+### 6. Create a docker-compose.yml file
 
-References and further reading:
+Docker compose file is used to define and run multi-container Docker applications with a single command `docker-compose up`.
 
-- [Containerize T3 stack and deploy it as a single container using Docker]https://create.t3.gg/en/deployment/docker
+Here we will not go into details about docker-compose files. In general our docker-compose file creates 3 services: web (Next.js application built with our Dockerfile), db (PostgreSQL database), and minio (Minio S3 file storage). Remember to add volumes for the database and file storage services. Otherwise, the data will be lost when you stop the containers. You can find more information about docker-compose files [here](https://docs.docker.com/compose/compose-file/).
+
+It is generally not recommended to store environment variables in the docker-compose file. However, in this particular scenario, for educational purposes and given that we are exclusively using it for local development and testing, it is looks acceptable.
+If you do not want to store secrets in the docker-compose file, you should use a .env file and use ${VARIABLE_NAME} syntax to reference the variables. More about environment variables in docker-compose files [here](https://docs.docker.com/compose/compose-file/09-secrets/).
+
+Inside the `compose` folder, create a file called `docker-compose.yml` with the following content:
+
+```yaml
+version: "3.9"
+services:
+  web:
+    build:
+      context: ../
+      dockerfile: compose/web.Dockerfile
+      args:
+        NEXT_PUBLIC_CLIENTVAR: "clientvar"
+    ports:
+      - 3000:3000
+    volumes:
+      - ../:/app
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/myapp-db?schema=public
+      - S3_ENDPOINT=minio
+      - S3_PORT=9000
+      - S3_ACCESS_KEY=minio
+      - S3_SECRET_KEY=miniosecret
+      - S3_BUCKET_NAME=s3bucket
+    depends_on:
+      - db
+      - minio
+  db:
+    image: postgres:15.3
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: myapp-db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+  minio:
+    image: bitnami/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_storage:/data
+volumes:
+  postgres-data:
+  minio_storage:
+```
+
+## Run the application
+
+Depending on where you have your docker-compose file located and what options you want to use,  
+you need to run the following command:
+
+```bash
+# If you have docker files in the root of the project
+docker-compose up
+
+# In our case, we have dockerfile and docker-compose file in the `compose` folder, so we need to run:
+
+docker-compose -f compose/docker-compose.yml up
+
+# For running the application with secrets ${VARIABLE_NAME} stored in the .env file, we would need to run:
+
+docker-compose -f compose/docker-compose.yml --env-file .env up
+
+# If you want to run the application in the background, you can use the -d flag:
+
+docker-compose -f compose/docker-compose.yml up -d
+
+```
+
+It will run build the Next.js application and run it on port 3000. It will also download the PostgreSQL and Minio S3 docker images and run them on ports 5432 and 9000 respectively.
+
+You can access the application at http://localhost:3000, PostgreSQL database at http://localhost:5432 (login: postgres, password: postgres), and Minio S3 at http://localhost:9000 (login: minio, password: miniosecret).
+
+## Conclusion
+
+In this article, we looked at how to build a local development environment for a full-stack Next.js application with Prisma ORM connected to PostgreSQL as a database and Minio S3 as a file storage using Docker-Compose.
+
+## References and further reading:
+
+- [Containerize T3 stack and deploy it as a single container using Docker](https://create.t3.gg/en/deployment/docker)
 - [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying#docker-image)
 - [Official Next.js Docker example](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
+- [Docker Compose file reference](https://docs.docker.com/compose/compose-file/)
 - [How to use .dockerignore and its importance](https://shisho.dev/blog/posts/how-to-use-dockerignore)
 - [Securing Docker Builds: A Comprehensive Guide to .dockerignore Usage and Best Practices](https://www.linkedin.com/pulse/securing-docker-builds-comprehensive-guide-usage-best-ilyas-ou-sbaa/)
+- [Prisma schema reference](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#binarytargets-options)
+- [Minio S3 Docker image](https://hub.docker.com/r/minio/minio)
+
+---
+
+I hope you found this article useful. If you have any questions or comments, please let me know in the comments below.
+
+In the next article, we add a file upload functionality and database integration to our application.
+
+---
+
+I'm always open to making new connections! Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/aleksandr-efimenko)

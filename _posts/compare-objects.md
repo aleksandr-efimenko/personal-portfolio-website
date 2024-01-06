@@ -1,5 +1,5 @@
 ---
-title: "4 ways to compare objects in Javascript"
+title: "Exploring 4 Ways to Compare Objects in JavaScript with Performance Analysis"
 excerpt: "In this article, I will implement a custom object and array comparison function. I will use recursion to implement the comparison function. I will also compare the performance of different methods of object comparison."
 coverImage: "/blog/compare-objects/cover.png"
 date: "2023-12-29"
