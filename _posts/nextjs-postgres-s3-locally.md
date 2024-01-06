@@ -11,16 +11,16 @@ ogImage:
 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
-- [Table of Contents](#table-of-contents)
-- [Create a Next.js application](#create-a-nextjs-application)
-- [Configure Next.js to work with Docker](#configure-nextjs-to-work-with-docker)
-- [Add .dockerignore file](#add-dockerignore-file)
-- [Configure Prisma to work with Docker](#configure-prisma-to-work-with-docker)
-- [Create a Dockerfile for the Next.js application](#create-a-dockerfile-for-the-nextjs-application)
-- [Create a docker-compose.yml file](#create-a-docker-composeyml-file)
+- [Building a local development environment](#building-a-local-development-environment)
+  - [1. Create a Next.js application](#1-create-a-nextjs-application)
+  - [2. Configure Next.js to work with Docker](#2-configure-nextjs-to-work-with-docker)
+  - [3. Add .dockerignore file](#3-add-dockerignore-file)
+  - [4. Configure Prisma to work with Docker](#4-configure-prisma-to-work-with-docker)
+  - [5. Create a Dockerfile for the Next.js application](#5-create-a-dockerfile-for-the-nextjs-application)
+  - [6. Create a docker-compose.yml file](#6-create-a-docker-compose-file)
 - [Run the application](#run-the-application)
 - [Conclusion](#conclusion)
-- [References and further reading:](#references-and-further-reading)
+- [References and further reading](#references-and-further-reading)
 
 ## Introduction
 
@@ -61,9 +61,11 @@ The same goes for the file storage, you need one that is compatible with the S3 
 
 ## Prerequisites
 
-To follow this tutorial, you need to have Docker and Docker-Compose installed on your machine. You can find the instructions on how to install Docker and Docker-Compose [here](https://docs.docker.com/get-docker/).
+To follow this tutorial, you need to have Docker and Docker-Compose installed on your machine. You can find the instructions on how to install [Docker](https://docs.docker.com/get-docker/) and [Docker-Compose](https://docs.docker.com/compose/install/) on the official Docker website.
 
-When I firstly faced the task of setting up a local development environment for Next.js, Prisma and PostgreSQL, I found the [T3 tutorial](https://create.t3.gg/en/deployment/docker) but it didn't work for me. It might be they updated the tutorial since then. I used it as a starting point for this tutorial.
+When I firstly faced the task of setting up a local development environment for Next.js, Prisma and PostgreSQL, I tried to use [T3 Docker tutorial](https://create.t3.gg/en/deployment/docker) but it didn't work for me. However, I use it as a starting point for this tutorial.
+
+## Building a local development environment
 
 ### 1. Create a Next.js application
 
@@ -73,7 +75,6 @@ Run the following command to create a new Next.js:
 
 ```bash
 npm create t3-app@latest
-
 ```
 
 After you run the command, you will be asked several questions:
@@ -84,8 +85,6 @@ After you run the command, you will be asked several questions:
  | (__|   / _| / /\ \| | | _|    | |  |_ \  / /\ \|  _/  _/
   \___|_|_\___|_/‾‾\_\_| |___|   |_| |___/ /_/‾‾\_\_| |_|
 
-
-│
 ◇  What will your project be called?
 │  local-nextjs-postgres-s3
 │
@@ -115,8 +114,6 @@ After you run the command, you will be asked several questions:
 │
 ◇  What import alias would you like to use?
 │  ~/
-
-
 ```
 
 ### 2. Configure Next.js to work with Docker
@@ -157,7 +154,7 @@ README.md
 In the `prisma/schema.prisma` file, we need to
 
 - change the provider from `sqlite` to `postgresql`:
-- Add binaryTargets to the generator block. It will allow us to use the Prisma CLI inside the Docker container. You need to your binaryTargets specific to your OS and architecture. For example, for M1 Mac, I use "linux-musl-arm64-openssl-3.0.x". To support other OS and architectures, you need to add them to the binaryTargets array. More about binaryTargets [here](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#binarytargets-options).
+- Add `binaryTargets` to the generator block. It will allow us to use the Prisma CLI inside the Docker container. You need to your `binaryTargets` specific to your OS and architecture. For example, for M1 Mac, I use `"linux-musl-arm64-openssl-3.0.x"`. To support other OS and architectures, you need to add them to the `binaryTargets` array. More about binaryTargets in the [Prisma documentation](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#binarytargets-options).
 
 I want to use the same `schema.prisma` file for local development on machines with different OS and architectures and also for CI/CD pipelines on GitHub Actions. So in my case, the `prisma/schema.prisma` file looks like this:
 
@@ -171,7 +168,6 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 ```
 
 ### 5. Create a Dockerfile for the Next.js application
@@ -195,14 +191,14 @@ We will use the `node:18-alpine` image as a base image. It is a lightweight imag
 
 Using 'clean install' (`npm ci`) instead of 'install' (`npm i`) is a good practice for Docker images. It will ensure that the dependencies are installed from the `package-lock.json` file and not from the node_modules cache. This is faster than 'install', which is especially important for CI/CD pipelines where you want to keep the build time as short as possible.
 
-### 6. Create a docker-compose.yml file
+### 6. Create a docker compose file
 
 Docker compose file is used to define and run multi-container Docker applications with a single command `docker-compose up`.
 
-Here we will not go into details about docker-compose files. In general our docker-compose file creates 3 services: web (Next.js application built with our Dockerfile), db (PostgreSQL database), and minio (Minio S3 file storage). Remember to add volumes for the database and file storage services. Otherwise, the data will be lost when you stop the containers. You can find more information about docker-compose files [here](https://docs.docker.com/compose/compose-file/).
+Here we will not go into details about docker-compose files. In general our docker-compose file creates 3 services: web (Next.js application built with our Dockerfile), db (PostgreSQL database), and minio (Minio S3 file storage). Remember to add volumes for the database and file storage services. Otherwise, the data will be lost when you stop the containers.
 
 It is generally not recommended to store environment variables in the docker-compose file. However, in this particular scenario, for educational purposes and given that we are exclusively using it for local development and testing, it is looks acceptable.
-If you do not want to store secrets in the docker-compose file, you should use a .env file and use ${VARIABLE_NAME} syntax to reference the variables. More about environment variables in docker-compose files [here](https://docs.docker.com/compose/compose-file/09-secrets/).
+If you do not want to store secrets in the docker-compose file, you should use a .env file and use `${VARIABLE_NAME}` syntax to reference the variables. More about environment variables in docker-compose files [Docker compose file reference](https://docs.docker.com/compose/compose-file/09-secrets).
 
 Inside the `compose` folder, create a file called `docker-compose.yml` with the following content:
 
@@ -263,22 +259,20 @@ you need to run the following command:
 docker-compose up
 
 # In our case, we have dockerfile and docker-compose file in the `compose` folder, so we need to run:
-
 docker-compose -f compose/docker-compose.yml up
 
+# --- Optional ---
 # For running the application with secrets ${VARIABLE_NAME} stored in the .env file, we would need to run:
-
 docker-compose -f compose/docker-compose.yml --env-file .env up
 
 # If you want to run the application in the background, you can use the -d flag:
-
 docker-compose -f compose/docker-compose.yml up -d
-
 ```
 
 It will run build the Next.js application and run it on port 3000. It will also download the PostgreSQL and Minio S3 docker images and run them on ports 5432 and 9000 respectively.
 
 You can access the application at http://localhost:3000, PostgreSQL database at http://localhost:5432 (login: postgres, password: postgres), and Minio S3 at http://localhost:9000 (login: minio, password: miniosecret).
+Credentials for the database and file storage are stored in the docker-compose file. You can change them if you want.
 
 ## Conclusion
 
