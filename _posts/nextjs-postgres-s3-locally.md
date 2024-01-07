@@ -178,8 +178,8 @@ Inside the `compose` folder, create a file called `web.Dockerfile` with the foll
 FROM node:18-alpine
 
 RUN mkdir app
-COPY ../prisma ../package.json ./app
-COPY ../package-lock.json ./app
+COPY ../prisma  ./app
+COPY ../package.json ../package-lock.json ./app
 WORKDIR /app
 
 RUN npm ci
