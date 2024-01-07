@@ -222,6 +222,10 @@ services:
       - S3_ACCESS_KEY=minio
       - S3_SECRET_KEY=miniosecret
       - S3_BUCKET_NAME=s3bucket
+      # For example, if you want to use Google OAuth API keys, you can store them in
+      # the .env file and add the following variables:
+      # - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      # - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
     depends_on:
       - db
       - minio
