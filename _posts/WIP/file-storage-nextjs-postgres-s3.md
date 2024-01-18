@@ -1,6 +1,5 @@
 ---
-title: "Building a Local Development Environment: Running a Next.js Full-Stack Application with PostgreSQL and Minio S3 Using Docker-Compose: Building the App
-"
+title: "Building a file storage with Next.js, PostgreSQL, and Minio S3"
 excerpt: "In this article, we will build a full-stack application using Next.js, PostgreSQL, and Minio S3."
 coverImage: "/blog/nextjs-postgres-s3-locally/cover.png"
 date: "2024-06-01"
@@ -8,7 +7,19 @@ ogImage:
   url: "/blog/nextjs-postgres-s3-locally/cover.png"
 ---
 
-The application we will build is a simple file storage application. Users will be able to upload files to the application, and the application will store the files in a PostgreSQL database and Minio S3.
+In the early days of web development, files like images and documents were stored on the web server along with the application code. However, with increasing user traffic and the need to store large files, cloud storage services like Amazon S3 have become the preferred way to store files.
+Separating the storage of files from the web server provides several benefits, including:
+
+- Scalability and performance
+- Large file support (up to 5TB)
+- Cost efficiency
+- Reliability
+- Global availability
+
+In this article, we will build an example of a file storage application using Next.js, PostgreSQL, and Minio S3. There are two main ways to upload files to S3 from Next.js:
+
+1. Using API routes to upload and download files. This is the simplest approach, but it has a limitation of 4MB, if you try to upload file more than 4MB, you will get a Next.js error ["API Routes Response Size Limited to 4MB" Error in Next.js"](https://nextjs.org/docs/messages/api-routes-response-size-limit).
+2. Using presigned URLs to get temporary access to upload files and then upload files directly from frontend to S3. This approach is a little bit more complex, but it does not use resources on the Next.js server with file uploads.
 
 ### 1. Frontend - Update the Next.js page to upload files
 
