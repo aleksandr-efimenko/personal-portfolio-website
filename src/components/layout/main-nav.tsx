@@ -9,7 +9,7 @@ const navItems = [
   },
   {
     name: "Blog",
-    href: "/blog",
+    href: "https://blog.alexefimenko.com/",
   },
 ];
 

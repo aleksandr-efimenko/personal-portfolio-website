@@ -18,6 +18,20 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/blog/:slug",
+        destination: "https://blog.alexefimenko.com/posts/:slug",
+        permanent: true,
+      },
+      {
+        source: "/blog/",
+        destination: "https://blog.alexefimenko.com",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default config;

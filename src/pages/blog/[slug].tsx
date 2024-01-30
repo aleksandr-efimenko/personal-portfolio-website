@@ -19,6 +19,7 @@ type Props = {
 
 export default function Post({ post, morePosts }: Props) {
   const router = useRouter();
+
   const title = `${post.title} | Alex Efimenko personal blog`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
