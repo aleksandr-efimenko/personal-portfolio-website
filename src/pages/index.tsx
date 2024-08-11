@@ -5,11 +5,14 @@ import { ProjectsBlock } from "@/components/main-page-blocks/projects/projects-b
 import { ContactBlock } from "@/components/main-page-blocks/contact/contact-block";
 import { TimelineBlock } from "@/components/main-page-blocks/timeline/timeline-block";
 
+const googleAdsClientId = process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID;
+
 export default function Home() {
   return (
     <>
       <Head>
         <title>{siteConfig.title}</title>
+        <meta name="google-adsense-account" content={googleAdsClientId}></meta>
       </Head>
       <section className="flex w-full flex-col">
         <HeroBlock />
